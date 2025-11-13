@@ -1,10 +1,10 @@
 {
-  "latestVersion": "1.0.1",
-  "latestBuildNumber": 2,
+  "latestVersion": "1.0.0",
+  "latestBuildNumber": 1,
   "forceUpdate": true,
   "releaseNotes": "- Introduced a brand new user interface for improved user experience.\n- Added dark mode support with automatic theme switching.\n- Enhanced music recommendation algorithm for better suggestions.",
   "updateUrl": "https://netramusic.vercel.app/#updates",
-  "lockApp": false,
+  "lockApp": true,
   "lockPassword": "123456",
   "lockMessage": "The app is temporarily locked for maintenance. Please check back later."
 }
