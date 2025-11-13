@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NetraMusic - Stream Music</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    /* Tailwind configuration for the Frosted Ice-Blue theme (light-only) */
+    tailwind.config = {
+      darkMode: false,
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#EEF9FF',
+              100: '#DFF4FF',
+              200: '#C9EEFF',
+              300: '#A8E6FF',
+              400: '#6FD0FF',
+              500: '#3BB6FF', // primary
+              600: '#0FA3FF',
+              700: '#0A84D0', // secondary
+              800: '#075E9A',
+              900: '#043A5F',
+            },
+            bg: {
+              light: '#F6FBFF', // page background start
+              subtle: '#E9F5FF', // page background end
+            },
+            slate: {
+              50: '#F8FAFD',
+              100: '#F1F5F9',
+              200: '#E2E8F0',
+              300: '#CBD5E1',
+              400: '#94A3B8',
+              500: '#64748B',
+              700: '#1E293B',
+              900: '#0F172A',
+            }
+          },
+          boxShadow: {
+            'soft-blue': '0 6px 20px rgba(59,182,255,0.12)',
+            'soft-glow': '0 8px 40px rgba(59,182,255,0.08)',
+          },
+          borderRadius: {
+            'xl-2': '1rem',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            slideInUp: { '0%': { transform: 'translateY(18px)', opacity: 0 }, '100%': { transform: 'translateY(0)', opacity: 1 } },
+            scaleIn: { '0%': { transform: 'scale(.98)', opacity: 0 }, '100%': { transform: 'scale(1)', opacity: 1 } },
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.45s ease-in-out',
+            'slide-in-up': 'slideInUp 0.45s ease-out',
+            'scale-in': 'scaleIn 0.28s ease-out',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Global base */
+    :root {
+      color-scheme: light;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #F6FBFF 0%, #E9F5FF 100%);
+      color: #0F172A;
+      /* deep slate */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Gradient accent text */
+    .text-gradient {
+      background: linear-gradient(90deg, #3BB6FF 0%, #6FD0FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Frosted glass card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(59, 182, 255, 0.12);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(59, 182, 255, 0.06);
+    }
+
+    /* Subtle separator line */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(59, 182, 255, 0.06), rgba(15, 163, 255, 0.03));
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(15, 163, 255, 0.12);
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    /* Page container */
+    [data-page] {
+      display: none;
+      animation: fadeIn 0.45s ease-in-out;
+    }
+
+    [data-page].active {
+      display: block;
+    }
+
+    /* Modal overlay for light theme */
+    #warning-modal {
+      display: none;
+      position: fixed;
+      z-index: 60;
+      inset: 0;
+      background-color: rgba(7, 12, 24, 0.08);
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Small helpers */
+    .nav-link.active {
+      color: #0A84D0;
+      border-bottom: 2px solid rgba(10, 132, 208, 0.12);
+    }
+
+    .animate-hidden {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
+    style="background: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(15,23,42,0.04);">
+    <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="#home" data-navlink="home" class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-300 to-primary-500 flex items-center justify-center shadow-soft-blue text-white">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <span class="font-extrabold text-xl text-slate-900">NetraMusic</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex md:items-center md:space-x-8">
+          <a href="#home" data-navlink="home"
+            class="nav-link text-slate-700 hover:text-slate-900 transition font-medium pb-1">Home</a>
+          <a href="#updates" data-navlink="updates"
+            class="nav-link text-slate-700 hover:text-slate-900 transition font-medium pb-1">App Updates</a>
+        </div>
+
+        <!-- Actions -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="#"
+            class="download-app-link inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-4 py-2 rounded-xl shadow-soft-glow transition">
+            <i class="fa-solid fa-download"></i> Download
+          </a>
+        </div>
+
+        <!-- Mobile -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-slate-700 hover:text-slate-900 focus:outline-none">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white/70 backdrop-blur-sm border-t border-slate-100">
+      <div class="px-3 py-4 space-y-2">
+        <a href="#home" data-navlink="home"
+          class="nav-link-mobile block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">Home</a>
+        <a href="#updates" data-navlink="updates"
+          class="nav-link-mobile block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">App Updates</a>
+        <div class="pt-2">
+          <a href="#"
+            class="download-app-link w-full inline-flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-3 py-2 rounded-xl">
+            <i class="fa-solid fa-download"></i> Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="pt-24">
+    <!-- HOME -->
+    <section data-page="home" id="home">
+      <!-- Hero -->
+      <div class="relative pt-16 pb-24 overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-56 -z-10"
+          style="background: radial-gradient(800px 200px at 10% 0%, rgba(59,182,255,0.12), transparent 30%);"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-slide-in-up">
+          <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 leading-tight">
+            All your music.
+            <br class="hidden md:block" />
+            <span class="text-gradient">One seamless stream.</span>
+          </h1>
+          <p class="max-w-2xl mx-auto text-lg text-slate-600 mb-8">
+            Stream millions of tracks, build playlists, and enjoy lossless-quality audio anywhere, anytime.
+          </p>
+
+          <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#"
+              class="download-app-link inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-xl shadow-soft-glow transition text-lg">
+              <i class="fa-solid fa-cloud-arrow-down"></i> Download App
+            </a>
+
+            <a href="http://telegram.dog/netramusic"
+              class="inline-flex items-center gap-2 border border-primary-200 text-primary-700 font-semibold px-6 py-3 rounded-xl hover:bg-primary-50 transition">
+              <i class="fa-brands fa-telegram"></i> Join TG Channel
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screenshots -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
+        <h2 class="text-2xl font-semibold text-slate-900 mb-4">App Screenshots</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
+            <img src="./assets/nm1.png" alt="Home screen" class="w-full h-full object-cover" />
+          </div>
+          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
+            <img src="./assets/nm2.png" alt="Now playing" class="w-full h-full object-cover" />
+          </div>
+          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
+            <img src="./assets/nm3.png" alt="Playlist" class="w-full h-full object-cover" />
+          </div>
+          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
+            <img src="./assets/nm4.png" alt="Search" class="w-full h-full object-cover" />
+          </div>
+          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
+            <img src="./assets/nm5.png" alt="Library" class="w-full h-full object-cover" />
+          </div>
+          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
+            <img src="./assets/nm6.png" alt="Settings" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="py-20 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            <div class="glass-card p-8 animate-slide-in-up animate-hidden">
+              <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 mb-4 mx-auto">
+                <i class="fa-solid fa-headphones text-primary-600 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">High-Quality Audio</h3>
+              <p class="text-slate-600">Adaptive bitrate streaming with near-lossless playback for audiophiles.</p>
+            </div>
+
+            <div class="glass-card p-8 animate-slide-in-up animate-hidden">
+              <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 mb-4 mx-auto">
+                <i class="fa-solid fa-list text-primary-600 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Playlists & Libraries</h3>
+              <p class="text-slate-600">Create, save, and share playlists. Smart sorting and quick access to favorites.
+              </p>
+            </div>
+
+            <div class="glass-card p-8 animate-slide-in-up animate-hidden">
+              <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 mb-4 mx-auto">
+                <i class="fa-solid fa-down-left-and-up-right-to-center text-primary-600 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Offline Listening</h3>
+              <p class="text-slate-600">Download tracks and playlists to play when you're offline or on the move.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section data-page="about" id="about">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 text-center">About <span
+              class="text-gradient">NetraMusic</span></h1>
+          <p class="text-center text-slate-600 mb-10">We build a simple, elegant listening experience focused only on
+            music.</p>
+
+          <div class="glass-card p-8 space-y-6">
+            <div>
+              <h2 class="text-xl font-semibold text-slate-900 mb-2">Our Story</h2>
+              <p class="text-slate-600 leading-relaxed">Founded in 2025, NetraMusic began as a focused project: bring
+                music discovery and playback into a single lightweight app. We care about sound quality, design, and
+                speed.</p>
+            </div>
+
+            <div>
+              <h2 class="text-xl font-semibold text-slate-900 mb-2">How We Work</h2>
+              <p class="text-slate-600 leading-relaxed">NetraMusic aggregates publicly available metadata and licensed
+                stream links to present an elegant player UI. <strong>We do not host copyrighted audio on our
+                  servers.</strong> We act as an aggregator and player — we rely on public/licensed sources for streams
+                and metadata.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section data-page="privacy" id="privacy">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 text-center">Privacy Policy</h1>
+          <p class="text-center text-slate-500 mb-8">Last updated: November 13, 2025</p>
+
+          <div class="glass-card p-8 space-y-6 text-slate-700 leading-relaxed">
+            <p>Welcome to NetraMusic. This policy explains what data we collect, how it's used, and your rights.</p>
+
+            <h3 class="text-lg font-semibold">1. Information We Collect</h3>
+            <ul class="list-disc pl-5 space-y-2">
+              <li><strong>Personal Data:</strong> Information you provide (email for account/support).</li>
+              <li><strong>Technical Data:</strong> IP address, device model, OS version, app version, crash logs.</li>
+              <li><strong>Usage Data:</strong> Aggregated, anonymized metrics to improve the product.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold">2. How We Use Data</h3>
+            <p>We use data to operate the service, provide support, fix issues, and improve features. We do not sell
+              your personal data or use listening history for targeted advertising.</p>
+
+            <h3 class="text-lg font-semibold">3. Sharing</h3>
+            <p>We may share limited data with service providers, for legal requirements, or as anonymized aggregated
+              statistics.</p>
+
+            <h3 class="text-lg font-semibold">4. Copyright & Takedowns</h3>
+            <p>NetraMusic does not host audio. If you are a rights holder and find infringing content linked through our
+              app, contact <a href="mailto:netramusic@gmail.com" class="text-primary-600">netramusic@gmail.com</a> with
+              a valid DMCA notice.</p>
+
+            <h3 class="text-lg font-semibold">5. Contact</h3>
+            <p>Questions or requests about data: <a href="mailto:netramusic@gmail.com"
+                class="text-primary-600">netramusic@gmail.com</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPDATES -->
+    <section data-page="updates" id="updates">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 text-center">App Updates & Changelog</h1>
+
+          <div id="timeline-container" class="space-y-8">
+            <div id="timeline-loading" class="text-center">
+              <i class="fa-solid fa-spinner fa-spin text-primary-500 text-3xl"></i>
+              <p class="text-slate-500 mt-2">Loading updates...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-100 mt-8" style="background: rgba(255,255,255,0.6);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-9 h-9 rounded-full bg-gradient-to-tr from-primary-300 to-primary-500 flex items-center justify-center text-white">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <div>
+            <div class="font-extrabold text-slate-900">NetraMusic</div>
+            <div class="text-sm text-slate-500">Stream music, simply.</div>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-center">
+          <a href="#about" data-navlink="about" class="text-slate-600 hover:text-slate-900">About</a>
+          <a href="#privacy" data-navlink="privacy" class="text-slate-600 hover:text-slate-900">Privacy</a>
+        </div>
+
+        <div class="flex gap-4 items-center">
+          <a href="#" aria-label="Twitter" class="text-slate-500 hover:text-slate-700"><i
+              class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook" class="text-slate-500 hover:text-slate-700"><i
+              class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram" class="text-slate-500 hover:text-slate-700"><i
+              class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="text-center text-slate-500 text-sm mt-8 border-t border-slate-100 pt-6">
+        &copy; 2025 NetraMusic. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WARNING MODAL -->
+  <div id="warning-modal" class="flex">
+    <div class="glass-card max-w-md w-full m-4 p-6 animate-scale-in">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold text-slate-900"><i
+            class="fa-solid fa-triangle-exclamation mr-2 text-yellow-500"></i> Warning</h2>
+        <button id="modal-close-btn" class="text-slate-600 hover:text-slate-900">&times;</button>
+      </div>
+      <p id="modal-text" class="text-slate-700 mb-6"></p>
+      <div class="flex justify-end gap-3">
+        <button id="modal-cancel-btn"
+          class="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 font-medium hover:bg-slate-200">Cancel</button>
+        <a id="modal-confirm-download-btn" href="#"
+          class="px-4 py-2 rounded-lg bg-red-600 text-white font-semibold hover:bg-red-700">Download Anyway</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let appUpdatesData = [];
+
+    const archDisplayNames = {
+      universal: "Universal (All Devices)",
+      "arm64-v8a": "Modern 64-bit Phones",
+      "armeabi-v7a": "Older Phones / Android TV",
+      x86_64: "Emulator / PC (64-bit)",
+    };
+
+    const getArchDisplayName = (arch) => archDisplayNames[arch] || arch;
+
+    async function fetchAppUpdates() {
+      const dataUrl = "https://ayu5hixd.github.io/NetraMusic/data/netramusic_app_updates.json";
+      const loadingEl = document.getElementById("timeline-loading");
+
+      try {
+        const response = await fetch(dataUrl, { cache: "no-cache" });
+        if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+        const data = await response.json();
+        appUpdatesData = data;
+
+        updateDownloadLinks();
+        renderAppUpdates();
+      } catch (error) {
+        console.error("Failed to fetch app updates:", error);
+        if (loadingEl) {
+          loadingEl.innerHTML = `
+            <div class="flex flex-col items-center">
+              <i class="fa-solid fa-circle-exclamation text-red-500 text-3xl"></i>
+              <p class="text-slate-500 mt-2">Failed to load app updates. Please try again later.</p>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function updateDownloadLinks() {
+      if (!appUpdatesData || appUpdatesData.length === 0) return;
+      const latest = appUpdatesData[0];
+      if (!latest || !latest.downloadUrl || !latest.downloadUrl[0]) return;
+
+      const latestUrl = latest.downloadUrl[0].universal;
+      if (!latestUrl) return;
+
+      document.querySelectorAll(".download-app-link").forEach(btn => btn.href = latestUrl);
+    }
+
+    function getChangelogItemHtml(item) {
+      let colorClass = "text-slate-600";
+      switch (item.type) {
+        case "NEW": colorClass = "text-green-600"; break;
+        case "IMPROVEMENT": colorClass = "text-primary-600"; break;
+        case "FIX": colorClass = "text-yellow-600"; break;
+        case "MAJOR": colorClass = "text-purple-600"; break;
+      }
+      return `<p class="${colorClass}"><span class="font-semibold">[${item.type}]</span> ${item.text}</p>`;
+    }
+
+    function renderAppUpdates() {
+      const container = document.getElementById("timeline-container");
+      const loadingEl = document.getElementById("timeline-loading");
+      if (!container) return;
+      if (!appUpdatesData || appUpdatesData.length === 0) {
+        if (loadingEl) loadingEl.style.display = "none";
+        container.innerHTML = `<p class="text-slate-500">No updates found.</p>`;
+        return;
+      }
+
+      let allHtml = "";
+
+      appUpdatesData.forEach((update, index) => {
+        const changelogHtml = (update.changelog || []).map(getChangelogItemHtml).join("");
+        let downloadButtonHtml = '<div class="flex flex-wrap gap-2">';
+        const links = (update.downloadUrl && update.downloadUrl[0]) || {};
+
+        if (index === 0) {
+          Object.keys(links).forEach(arch => {
+            const url = links[arch];
+            if (!url) return;
+            const isUniversal = arch === "universal";
+            const displayName = getArchDisplayName(arch);
+            const baseClass = isUniversal ? 'bg-primary-500 text-white' : 'bg-slate-100 text-slate-700';
+            downloadButtonHtml += `<a href="${url}" class="inline-block ${baseClass} font-semibold px-4 py-2 text-sm rounded-lg transition">${displayName}</a>`;
+          });
+        } else {
+          if (links.universal) {
+            downloadButtonHtml += `<button data-download-url="${links.universal}" data-version="${update.version}" data-arch="universal" class="download-old-version-btn inline-block bg-slate-100 text-slate-700 font-semibold px-4 py-2 text-sm rounded-lg transition">${getArchDisplayName('universal')}</button>`;
+          }
+        }
+
+        downloadButtonHtml += "</div>";
+
+        allHtml += `
+          <div class="relative pl-8 sm:pl-12 animate-slide-in-up animate-hidden" style="animation-delay: ${index * 80}ms;">
+            <div class="absolute left-0 top-1 w-px h-full bg-slate-100 sm:left-4"></div>
+            <div class="absolute left-[-9px] top-0 sm:left-0">
+              <div class="w-8 h-8 bg-primary-50 rounded-full flex items-center justify-center ring-8 ring-primary-50">
+                <i class="fa-solid ${update.icon || 'fa-music'} text-xs text-primary-600"></i>
+              </div>
+            </div>
+
+            <div class="glass-card p-5">
+              <p class="text-sm text-slate-500 font-medium mb-1">${update.date || ''}</p>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">${update.version || ''}</h3>
+              <div class="space-y-2 text-slate-700">${changelogHtml}</div>
+              <div class="mt-4 pt-4 border-t border-slate-100/50">${downloadButtonHtml}</div>
+            </div>
+          </div>
+        `;
+      });
+
+      if (loadingEl) loadingEl.style.display = "none";
+      container.innerHTML = allHtml;
+
+      // Trigger animations
+      container.querySelectorAll('.animate-hidden').forEach(el => el.classList.remove('animate-hidden'));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('[data-navlink]');
+      const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
+      const desktopNavLinks = document.querySelectorAll('.nav-link');
+      const pages = document.querySelectorAll('[data-page]');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const modal = document.getElementById('warning-modal');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+      const modalCancelBtn = document.getElementById('modal-cancel-btn');
+      const modalConfirmBtn = document.getElementById('modal-confirm-download-btn');
+      const modalText = document.getElementById('modal-text');
+      const timelineContainer = document.getElementById('timeline-container');
+
+      // initial fetch
+      fetchAppUpdates();
+
+      // mobile toggle
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+        } else {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+        }
+      });
+
+      function showPage(pageId) {
+        pages.forEach(p => p.classList.remove('active'));
+        const target = document.getElementById(pageId);
+        if (target) {
+          target.classList.add('active');
+          target.querySelectorAll('.animate-hidden').forEach(e => e.classList.remove('animate-hidden'));
+        } else {
+          document.getElementById('home').classList.add('active');
+        }
+
+        desktopNavLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('data-navlink') === pageId);
+        });
+
+        mobileNavLinks.forEach(link => {
+          if (link.getAttribute('data-navlink') === pageId) link.classList.add('bg-slate-50', 'text-slate-900');
+          else link.classList.remove('bg-slate-50', 'text-slate-900');
+        });
+
+        // close mobile
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+        window.scrollTo(0, 0);
+      }
+
+      navLinks.forEach(link => link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pageId = link.getAttribute('data-navlink');
+        window.location.hash = pageId;
+      }));
+
+      window.addEventListener('hashchange', () => {
+        let pageId = window.location.hash.substring(1);
+        if (!pageId || !document.getElementById(pageId)) pageId = 'home';
+        showPage(pageId);
+      });
+
+      let initial = window.location.hash.substring(1);
+      if (!initial || !document.getElementById(initial)) initial = 'home';
+      showPage(initial);
+      if (!window.location.hash) window.location.hash = '#home';
+
+      timelineContainer.addEventListener('click', function (e) {
+        const clicked = e.target.closest('.download-old-version-btn');
+        if (!clicked) return;
+        const url = clicked.getAttribute('data-download-url');
+        const version = clicked.getAttribute('data-version');
+        const arch = clicked.getAttribute('data-arch');
+        const displayName = getArchDisplayName(arch);
+
+        modalText.innerHTML = `You are about to download an older version (<strong>${version} - ${displayName}</strong>). We recommend using the latest release for security and features.`;
+        modalConfirmBtn.href = url;
+        modal.style.display = 'flex';
+      });
+
+      function hideModal() {
+        modal.style.display = 'none';
+        modalConfirmBtn.href = '#';
+      }
+
+      modalCloseBtn.addEventListener('click', hideModal);
+      modalCancelBtn.addEventListener('click', hideModal);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) hideModal();
+      });
+    });
+  </script>
+</body>
+
+</html>
