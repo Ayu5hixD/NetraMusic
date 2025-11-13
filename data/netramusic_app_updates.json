@@ -1,0 +1,31 @@
+[
+  {
+    "version": "1.0.0 (Latest)",
+    "date": "November 13, 2025",
+    "icon": "fa-rocket",
+    "color": "bg-primary-500",
+    "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-armeabi-v7a-release.apk",
+        "x86_64": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-x86_64-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "MAJOR",
+        "text": "Introduced a brand new user interface for improved user experience."
+      },
+      {
+        "type": "NEW",
+        "text": "Added dark mode support with automatic theme switching."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Enhanced music recommendation algorithm for better suggestions."
+      }
+    ]
+  }
+]
