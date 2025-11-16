@@ -16,15 +16,35 @@
     "changelog": [
       {
         "type": "MAJOR",
-        "text": "Introduced a brand new user interface for improved user experience."
+        "text": "Initial release: Stream music with sections for Trending, Top Artists, and Albums."
       },
       {
-        "type": "NEW",
-        "text": "Added dark mode support with automatic theme switching."
+        "type": "MAJOR",
+        "text": "Full offline support with song downloads and an 'Auto-download Liked Songs' feature."
       },
       {
-        "type": "IMPROVEMENT",
-        "text": "Enhanced music recommendation algorithm for better suggestions."
+        "type": "MAJOR",
+        "text": "Spotify integration to import 'Liked Songs', 'Top Tracks', and personal playlists."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Personal library with 'Liked Songs' and custom playlist creation."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Advanced music search with voice search capabilities."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Encrypted Backup & Restore for settings, playlists, and liked songs."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Full-featured music player with background playback, queue management, and lyrics."
+      },
+      {
+        "type": "MAJOR",
+        "text": "App customization with Light/Dark themes and multi-language support."
       }
     ]
   }
