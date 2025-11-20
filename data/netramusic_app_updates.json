@@ -1,10 +1,31 @@
 [
   {
-    "version": "1.1.0 (Latest)",
+    "version": "1.1.1 (Latest)",
     "date": "November 20, 2025",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-armeabi-v7a-release.apk",
+        "x86_64": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-x86_64-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "FIX",
+        "text": "Enhance Music Party with shared controls, robust sync, and host-from-album"
+      }
+    ]
+  },
+  {
+    "version": "1.1.0",
+    "date": "November 19, 2025",
+    "icon": "fa-podcast",
+    "color": "bg-gary-600",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.0-arm64-v8a-release.apk",
@@ -24,8 +45,8 @@
     "version": "1.0.0 : Initial Release",
     "date": "November 16, 2025",
     "icon": "fa-music",
-    "color": "bg-primary-500",
-    "ring": "ring-primary-500/10",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-arm64-v8a-release.apk",
