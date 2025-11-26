@@ -1,8 +1,8 @@
 {
-  "latestVersion": "1.1.1",
-  "latestBuildNumber": 3,
+  "latestVersion": "1.2.0",
+  "latestBuildNumber": 4,
   "forceUpdate": true,
-  "releaseNotes": "- Enhance Music Party with shared controls, robust sync, and host-from-album.\n\n Team Netra",
+  "releaseNotes": "- Add hourly music notifications & optimize party sync.\n\n Team Netra",
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "lockApp": false,
   "lockPassword": "123456",
