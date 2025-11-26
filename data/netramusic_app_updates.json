@@ -1,10 +1,35 @@
 [
   {
-    "version": "1.1.1 (Latest)",
-    "date": "November 20, 2025",
+    "version": "1.2.0 (Latest)",
+    "date": "November 26, 2025",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.0-armeabi-v7a-release.apk",
+        "x86_64": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.0-x86_64-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.0-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Add hourly music notifications"
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Optimize Music Party Sync"
+      }
+    ]
+  },
+  {
+    "version": "1.1.1",
+    "date": "November 20, 2025",
+    "icon": "fa-rocket",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-arm64-v8a-release.apk",
