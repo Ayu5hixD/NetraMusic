@@ -1,6 +1,6 @@
 {
   "latestVersion": "1.2.1",
-  "latestBuildNumber": 5,
+  "latestBuildNumber": 6,
   "forceUpdate": true,
   "releaseNotes": "- Fix notification playback on cold start and AudioHandler state error.\n\n Team Netra",
   "updateUrl": "https://netramusic.vercel.app/#updates",
