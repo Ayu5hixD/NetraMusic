@@ -1,8 +1,8 @@
 {
-  "latestVersion": "1.2.0",
-  "latestBuildNumber": 4,
+  "latestVersion": "1.2.1",
+  "latestBuildNumber": 5,
   "forceUpdate": true,
-  "releaseNotes": "- Add hourly music notifications & optimize party sync.\n\n Team Netra",
+  "releaseNotes": "- Fix notification playback on cold start and AudioHandler state error.\n\n Team Netra",
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "lockApp": false,
   "lockPassword": "123456",
