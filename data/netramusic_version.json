@@ -1,8 +1,8 @@
 {
-  "latestVersion": "1.2.1",
-  "latestBuildNumber": 6,
+  "latestVersion": "1.2.2",
+  "latestBuildNumber": 7,
   "forceUpdate": true,
-  "releaseNotes": "- Fix notification playback on cold start and AudioHandler state error.\n\n Team Netra",
+  "releaseNotes": "- Upgrade Music Party features and enhance Library UI.\n\n Team Netra",
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "lockApp": false,
   "lockPassword": "123456",
