@@ -33,7 +33,7 @@
       {
         "type": "FIX",
         "text": "Fixed playback interruption bug when switching songs in Party queue"
-      },
+      }
     ]
   },
   {
