@@ -3,7 +3,37 @@
   "latestBuildNumber": 7,
   "forceUpdate": true,
   "releaseNotes": "- Upgrade Music Party features and enhance Library UI.\n\n Team Netra",
+  "changelog": [
+    {
+      "type": "NEW",
+      "text": "Added seek slider to Party Room player for synchronized playback control"
+    },
+    {
+      "type": "NEW",
+      "text": "Enabled authorized guests to add songs directly to the queue"
+    },
+    {
+      "type": "NEW",
+      "text": "Added badge notification for pending control requests on Host screen"
+    },
+    {
+      "type": "NEW",
+      "text": "Added visual indicator for existing songs in Party search results"
+    },
+    {
+      "type": "FIX",
+      "text": "Fixed playback interruption bug when switching songs in Party queue"
+    }
+  ],
+  },
   "updateUrl": "https://netramusic.vercel.app/#updates",
+  "downloadUrl": [
+    {
+      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-armeabi-v7a-release.apk",
+      "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-universal-release.apk"
+    }
+  ],
   "lockApp": false,
   "lockPassword": "123456",
   "lockMessage": "The app is temporarily locked for maintenance. Please check back later."
