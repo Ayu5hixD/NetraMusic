@@ -25,7 +25,6 @@
       "text": "Fixed playback interruption bug when switching songs in Party queue"
     }
   ],
-  },
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "downloadUrl": [
     {
