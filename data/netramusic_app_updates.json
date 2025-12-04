@@ -1,10 +1,50 @@
 [
   {
-    "version": "1.2.2 (Latest)",
-    "date": "November 29, 2025",
+    "version": "1.3.0 (Latest)",
+    "date": "December 5, 2025",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "MAJOR",
+        "text": "Added Support for Android TV. Now users Playlists sync through QR scan, smart playlist merging."
+      },
+      {
+        "type": "NEW",
+        "text": "Implemented a custom update system with changelog display, download progress, auto-retry, and architecture-specific APK selection."
+      },
+      {
+        "type": "NEW",
+        "text": "Added support for big picture images in local notifications. Added Landscape mode support for Party Room and Update Dialog."
+      },
+      {
+        "type": "FIX",
+        "text": "Optimized queue updates by removing blocking network calls for metadata resolution. Fixed player stopping logic on queue completion."
+      },
+      {
+        "type": "FIX",
+        "text": "Implemented a sequential download queue to prevent memory crashes and network timeouts."
+      },
+      {
+        "type": "FIX",
+        "text": "Fixed playback logic for search results to ensure valid media URLs."
+      }
+    ]
+  },
+  {
+    "version": "1.2.2",
+    "date": "November 29, 2025",
+    "icon": "fa-pen",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-arm64-v8a-release.apk",
