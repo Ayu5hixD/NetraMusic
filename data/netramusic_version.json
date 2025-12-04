@@ -1,36 +1,40 @@
 {
-  "latestVersion": "1.2.2",
-  "latestBuildNumber": 7,
+  "latestVersion": "1.3.0",
+  "latestBuildNumber": 8,
   "forceUpdate": true,
-  "releaseNotes": "- Upgrade Music Party features and enhance Library UI.\n\n Team Netra",
+  "releaseNotes": "- Team Netra",
   "changelog": [
     {
-      "type": "NEW",
-      "text": "Added seek slider to Party Room player for synchronized playback control"
+      "type": "MAJOR",
+      "text": "Added Support for Android TV. Now users Playlists sync through QR scan, smart playlist merging."
     },
     {
       "type": "NEW",
-      "text": "Enabled authorized guests to add songs directly to the queue"
+      "text": "Implemented a custom update system with changelog display, download progress, auto-retry, and architecture-specific APK selection."
     },
     {
       "type": "NEW",
-      "text": "Added badge notification for pending control requests on Host screen"
-    },
-    {
-      "type": "NEW",
-      "text": "Added visual indicator for existing songs in Party search results"
+      "text": "Added support for big picture images in local notifications. Added Landscape mode support for Party Room and Update Dialog."
     },
     {
       "type": "FIX",
-      "text": "Fixed playback interruption bug when switching songs in Party queue"
+      "text": "Optimized queue updates by removing blocking network calls for metadata resolution. Fixed player stopping logic on queue completion."
+    },
+    {
+      "type": "FIX",
+      "text": "Implemented a sequential download queue to prevent memory crashes and network timeouts."
+    },
+    {
+      "type": "FIX",
+      "text": "Fixed playback logic for search results to ensure valid media URLs."
     }
   ],
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "downloadUrl": [
     {
-      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-arm64-v8a-release.apk",
-      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-armeabi-v7a-release.apk",
-      "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-universal-release.apk"
+      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-armeabi-v7a-release.apk",
+      "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-universal-release.apk"
     }
   ],
   "lockApp": false,
