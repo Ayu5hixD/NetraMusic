@@ -6,27 +6,23 @@
   "changelog": [
     {
       "type": "MAJOR",
-      "text": "Added Support for Android TV. Now users Playlists sync through QR scan, smart playlist merging."
+      "text": "Added Android TV support with QR-based playlist sync and smart merging."
     },
     {
       "type": "NEW",
-      "text": "Implemented a custom update system with changelog display, download progress, auto-retry, and architecture-specific APK selection."
+      "text": "Introduced a custom update system with changelog, progress, auto-retry, and architecture-specific APKs."
     },
     {
       "type": "NEW",
-      "text": "Added support for big picture images in local notifications. Added Landscape mode support for Party Room and Update Dialog."
+      "text": "Added big-picture notification images and landscape support for Party Room and Update Dialog."
     },
     {
       "type": "FIX",
-      "text": "Optimized queue updates by removing blocking network calls for metadata resolution. Fixed player stopping logic on queue completion."
+      "text": "Optimized queue updates, fixed player-stop logic, and ensured valid media URLs in search playback."
     },
     {
       "type": "FIX",
-      "text": "Implemented a sequential download queue to prevent memory crashes and network timeouts."
-    },
-    {
-      "type": "FIX",
-      "text": "Fixed playback logic for search results to ensure valid media URLs."
+      "text": "Implemented a sequential download queue to prevent memory issues and timeouts."
     }
   ],
   "updateUrl": "https://netramusic.vercel.app/#updates",
