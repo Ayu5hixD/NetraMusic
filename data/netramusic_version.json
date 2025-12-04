@@ -2,7 +2,7 @@
   "latestVersion": "1.3.0",
   "latestBuildNumber": 8,
   "forceUpdate": true,
-  "releaseNotes": "- Added Android TV support with QR-based playlist sync and smart merging.\n- Introduced a custom update system with changelog, progress, auto-retry, and architecture-specific APKs.\n\n- and many more...\n\n- Team Netra",
+  "releaseNotes": "- Added Android TV support with QR-based playlist sync and smart merging.\n\n- Introduced a custom update system with changelog, progress, auto-retry, and architecture-specific APKs and many more...\n\n- Team Netra",
   "changelog": [
     {
       "type": "MAJOR",
