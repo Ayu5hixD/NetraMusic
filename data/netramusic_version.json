@@ -1,28 +1,36 @@
 {
-  "latestVersion": "1.3.2",
-  "latestBuildNumber": 10,
+  "latestVersion": "1.3.3",
+  "latestBuildNumber": 2011,
   "forceUpdate": true,
-  "releaseNotes": "- Add PIN security for transfers & improve TV focus UX.\n\n- Add Lottie animations and Shimmer loading effects to Mobile and TV screens and many more...\n\n- Team Netra",
+  "releaseNotes": "- Add Google Drive Cloud Backup & Restore.\n\n- Add Sleep Timer to auto-pause music and many more...\n\n- Team Netra",
   "changelog": [
     {
       "type": "NEW",
-      "text": "Added PIN security for transfers & improve TV focus UX."
+      "text": "Add Google Drive Cloud Backup & Restore."
     },
     {
       "type": "NEW",
-      "text": "Added Lottie animations and Shimmer loading effects to Mobile and TV screens."
+      "text": "Add Sleep Timer to auto-pause music."
+    },
+    {
+      "type": "NEW",
+      "text": "Add Global ErrorHandler for unified alerts."
     },
     {
       "type": "FIX",
-      "text": "Fixing the issue where D-pad navigation was unresponsive upon loading."
+      "text": "Fix latest song notifications and improve overall music notification behavior."
+    },
+    {
+      "type": "FIX",
+      "text": "Update Settings UI to show user profile, last backup time, and cloud options."
     }
   ],
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "downloadUrl": [
     {
-      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.2-arm64-v8a-release.apk",
-      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.2-armeabi-v7a-release.apk",
-      "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.2-universal-release.apk"
+      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.3-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.3-armeabi-v7a-release.apk",
+      "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.3-universal-release.apk"
     }
   ],
   "lockApp": false,
