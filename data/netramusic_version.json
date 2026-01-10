@@ -2,7 +2,7 @@
   "latestVersion": "1.4.0",
   "latestBuildNumber": 2012,
   "forceUpdate": true,
-  "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Redesigned the Artist screen and added Party Mode with Save to Library support.\n\n- Team Netra"
+  "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Redesigned the Artist screen and added Party Mode with Save to Library support.\n\n- Team Netra",
   "changelog": [
     {
       "type": "NEW",
