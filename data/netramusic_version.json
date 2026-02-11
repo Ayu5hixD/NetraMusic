@@ -29,7 +29,7 @@
       "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.4.0-universal-release.apk"
     }
   ],
-  "lockApp": false,
+  "lockApp": true,
   "lockPassword": "123456",
   "lockMessage": "The app is temporarily locked for maintenance. Please check back later."
 }
