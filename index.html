@@ -226,11 +226,24 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+
+      .coverflow-container {
+        height: 65vh;
+        max-height: 420px;
+        min-height: 360px;
+        perspective: 900px;
+      }
+
       .coverflow-item {
-        width: 160px;
-        height: 300px;
+        width: 170px;
+        height: 320px;
+      }
+
+      .coverflow-item img {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
       }
     }
+
 
     @keyframes blob {
       0% {
@@ -1001,7 +1014,20 @@
       let currentIndex = Math.floor(items.length / 2);
 
       function updateCoverflow() {
+
+        const isMobile = window.innerWidth <= 768;
+
+        const spacing = isMobile
+          ? Math.min(window.innerWidth * 0.35, 130)
+          : 200;
+        const depth = isMobile ? 120 : 280;
+        const rotate = isMobile ? 25 : 40;
+        const scaleSide = isMobile ? 0.85 : 0.8;
+        const blurAmount = isMobile ? 0 : 2;
+        const translateY = isMobile ? 0 : 40;
+
         items.forEach((item, index) => {
+
           const offset = index - currentIndex;
 
           item.style.left = "50%";
@@ -1009,27 +1035,31 @@
 
           if (offset === 0) {
             item.style.transform = `
-          translateX(-50%) translateY(40px)
-          translateZ(280px)
-          rotateY(0deg)
-          scale(1)
-        `;
+        translateX(-50%)
+        translateY(${translateY}px)
+        translateZ(${depth}px)
+        rotateY(0deg)
+        scale(1)
+      `;
             item.style.opacity = "1";
             item.style.zIndex = "100";
             item.style.filter = "none";
           } else {
             item.style.transform = `
-          translateX(calc(-50% + ${offset * 200}px)) translateY(40px)
-          translateZ(${Math.abs(offset) * -150}px)
-          rotateY(${offset * -40}deg)
-          scale(0.8)
-        `;
-            item.style.opacity = "0.5";
+        translateX(calc(-50% + ${offset * spacing}px))
+        translateY(${translateY}px)
+        translateZ(${Math.abs(offset) * -depth}px)
+        rotateY(${offset * -rotate}deg)
+        scale(${scaleSide})
+      `;
+            item.style.opacity = "0.7";
             item.style.zIndex = 100 - Math.abs(offset);
-            item.style.filter = "blur(2px)";
+            item.style.filter = `blur(${blurAmount}px)`;
           }
         });
       }
+
+      window.addEventListener("resize", updateCoverflow);
 
       function nextSlide() {
         currentIndex = (currentIndex + 1) % items.length;
@@ -1061,8 +1091,8 @@
 
       coverflow.addEventListener("touchend", e => {
         const endX = e.changedTouches[0].clientX;
-        if (startX - endX > 50) nextSlide();
-        if (endX - startX > 50) prevSlide();
+        if (startX - endX > 30) nextSlide();
+        if (endX - startX > 30) prevSlide();
       });
 
       updateCoverflow();
