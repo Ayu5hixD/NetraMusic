@@ -184,57 +184,52 @@
       opacity: 0;
     }
 
-    /* Premium Screenshot Carousel */
-    .screenshot-item {
-      width: 200px;
-      height: 400px;
-      flex-shrink: 0;
-      border-radius: 18px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 40px rgba(59, 182, 255, 0.12);
-      transform: perspective(1000px) rotateY(0deg);
-      transition: transform .5s ease, box-shadow .5s ease;
+    /* 3D Coverflow */
+
+    .coverflow-container {
+      position: relative;
+      width: 100%;
+      height: 620px;
+      perspective: 1400px;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .screenshot-item img {
+    .coverflow-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .coverflow-item {
+      position: absolute;
+      width: 240px;
+      height: 460px;
+      left: 50%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(.25, .8, .25, 1),
+        opacity 0.6s ease,
+        filter 0.6s ease;
+      border-radius: 20px;
+    }
+
+    .coverflow-item img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
     }
 
-    .screenshot-item:hover {
-      transform: perspective(1000px) rotateY(6deg) scale(1.07);
-      box-shadow: 0 20px 60px rgba(59, 182, 255, 0.25);
-    }
-
-    /* Responsive sizing */
+    /* Responsive */
     @media (max-width: 768px) {
-      .screenshot-item {
-        width: 140px;
-        height: 260px;
+      .coverflow-item {
+        width: 160px;
+        height: 300px;
       }
-    }
-
-    /* Premium Infinite Carousel */
-
-    @keyframes autoSlide {
-      0% {
-        transform: translateX(0);
-      }
-
-      50% {
-        transform: translateX(-25%);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .animate-carousel {
-      animation: autoSlide 45s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     @keyframes blob {
@@ -384,74 +379,57 @@
             Explore the elegance of NetraMusic through a seamless visual showcase.
           </p>
         </div>
-        <div class="relative overflow-hidden">
-          <div id="screenshot-track" class="flex gap-6 w-max animate-carousel">
+        <div class="coverflow-container">
+          <div id="coverflow" class="coverflow-track">
 
             <!-- Add as many images as you want -->
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_1.png" alt="SS_1" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_2.png" alt="SS_2" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_3.png" alt="SS_3" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_4.png" alt="SS_4" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_5.png" alt="SS_5" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_6.png" alt="SS_6" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_7.png" alt="SS_7" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_8.png" alt="SS_8" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_9.png" alt="SS_9" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_10.png" alt="SS_10" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_11.png" alt="SS_11" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_12.png" alt="SS_12" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_13.png" alt="SS_13" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_14.png" alt="SS_14" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_15.png" alt="SS_15" />
             </div>
-            <div class="screenshot-item">
+            <div class="coverflow-item">
               <img src="./assets/netramusic_16.png" alt="SS_16" />
-            </div>
-
-            <!-- Duplicate first few for seamless infinite scroll -->
-            <div class="screenshot-item">
-              <img src="./assets/netramusic_1.png" />
-            </div>
-            <div class="screenshot-item">
-              <img src="./assets/netramusic_2.png" />
-            </div>
-            <div class="screenshot-item">
-              <img src="./assets/netramusic_3.png" />
-            </div>
-            <div class="screenshot-item">
-              <img src="./assets/netramusic_4.png" />
-            </div>
-            <div class="screenshot-item">
-              <img src="./assets/netramusic_5.png" />
             </div>
           </div>
         </div>
@@ -1010,6 +988,84 @@
       modal.addEventListener('click', (e) => {
         if (e.target === modal) hideModal();
       });
+    });
+
+    // COVERFLOW LOGIC
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const coverflow = document.getElementById("coverflow");
+      if (!coverflow) return;
+
+      const items = Array.from(coverflow.querySelectorAll(".coverflow-item"));
+
+      let currentIndex = Math.floor(items.length / 2);
+
+      function updateCoverflow() {
+        items.forEach((item, index) => {
+          const offset = index - currentIndex;
+
+          item.style.left = "50%";
+          item.style.transformOrigin = "center center";
+
+          if (offset === 0) {
+            item.style.transform = `
+          translateX(-50%) translateY(40px)
+          translateZ(280px)
+          rotateY(0deg)
+          scale(1)
+        `;
+            item.style.opacity = "1";
+            item.style.zIndex = "100";
+            item.style.filter = "none";
+          } else {
+            item.style.transform = `
+          translateX(calc(-50% + ${offset * 200}px)) translateY(40px)
+          translateZ(${Math.abs(offset) * -150}px)
+          rotateY(${offset * -40}deg)
+          scale(0.8)
+        `;
+            item.style.opacity = "0.5";
+            item.style.zIndex = 100 - Math.abs(offset);
+            item.style.filter = "blur(2px)";
+          }
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCoverflow();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCoverflow();
+      }
+
+      /* Auto rotate */
+      setInterval(nextSlide, 3500);
+
+      /* Click to focus */
+      items.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          currentIndex = index;
+          updateCoverflow();
+        });
+      });
+
+      /* Touch swipe */
+      let startX = 0;
+
+      coverflow.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+      });
+
+      coverflow.addEventListener("touchend", e => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextSlide();
+        if (endX - startX > 50) prevSlide();
+      });
+
+      updateCoverflow();
     });
   </script>
 </body>
