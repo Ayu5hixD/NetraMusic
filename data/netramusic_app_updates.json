@@ -1,10 +1,70 @@
 [
   {
-    "version": "1.4.0 (Latest)",
-    "date": "January 10, 2026",
+    "version": "2.0.0 (Latest)",
+    "date": "Febuary 12, 2026",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.2.0.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.2.0.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.2.0.0-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Party Chat using Firebase Realtime Database with unread badges."
+      },
+      {
+        "type": "NEW",
+        "text": "Musical Map with geo-tagged listening history and map markers."
+      },
+      {
+        "type": "NEW",
+        "text": "Music Trivia Arena with offline snippet quiz, high scores, and QuizProvider logic."
+      },
+      {
+        "type": "NEW",
+        "text": "Private Vault with biometric lock and isolated sembast store."
+      },
+      {
+        "type": "NEW",
+        "text": "Integrate built-in Ringtone Cutter with waveform UI and FFmpeg trimming."
+      },
+      {
+        "type": "NEW",
+        "text": "Democracy Queue with real-time voting and auto-sorted party playlist."
+      },
+      {
+        "type": "NEW",
+        "text": "Audio Aura personas based on listening behavior analytics."
+      },
+      {
+        "type": "NEW",
+        "text": "Netra Wrapped on-demand report with vibe score and shareable badges."
+      },
+      {
+        "type": "NEW",
+        "text": "Time Machine calendar view for date-wise listening history."
+      },
+      {
+        "type": "NEW",
+        "text": "Netra Wrapped with animated Story Mode and Discovery Ratio metric."
+      },
+      {
+        "type": "NEW",
+        "text": "Audio Aura with visual mesh gradients, new personas, and skip/binge detection."
+      }
+    ]
+  },
+  {
+    "version": "1.4.0",
+    "date": "January 10, 2026",
+    "icon": "fa-kite",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.4.0-arm64-v8a-release.apk",
