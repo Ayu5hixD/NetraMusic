@@ -10,14 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
 
@@ -103,6 +100,8 @@
       /* deep slate */
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      /* Fix horizontal scroll issues */
     }
 
     /* Gradient accent text */
@@ -228,15 +227,18 @@
     @media (max-width: 768px) {
 
       .coverflow-container {
-        height: 65vh;
-        max-height: 420px;
-        min-height: 360px;
+        /* FIX: Reduced height to stop it taking full screen */
+        height: 420px;
+        max-height: 50vh;
+        min-height: 350px;
         perspective: 900px;
+        margin-bottom: 20px;
       }
 
       .coverflow-item {
-        width: 170px;
-        height: 320px;
+        /* FIX: Resized items to fit new container */
+        width: 160px;
+        height: 280px;
       }
 
       .coverflow-item img {
@@ -274,7 +276,6 @@
     <div class="absolute w-[700px] h-[700px] bg-primary-300 rounded-full blur-3xl opacity-20 animate-blob"></div>
   </div>
 
-  <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
     style="background: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(15,23,42,0.04);">
     <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -287,7 +288,6 @@
           <span class="font-extrabold text-xl text-slate-900">NetraMusic</span>
         </a>
 
-        <!-- Desktop nav -->
         <div class="hidden md:flex md:items-center md:space-x-8">
           <a href="#home" data-navlink="home"
             class="nav-link text-slate-700 hover:text-slate-900 transition font-medium pb-1">Home</a>
@@ -295,7 +295,6 @@
             class="nav-link text-slate-700 hover:text-slate-900 transition font-medium pb-1">App Updates</a>
         </div>
 
-        <!-- Actions -->
         <div class="hidden md:flex items-center gap-4">
           <a href="#"
             class="download-app-link inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-4 py-2 rounded-xl shadow-soft-glow transition">
@@ -303,7 +302,6 @@
           </a>
         </div>
 
-        <!-- Mobile -->
         <div class="md:hidden">
           <button id="mobile-menu-btn" class="text-slate-700 hover:text-slate-900 focus:outline-none">
             <i class="fa-solid fa-bars text-2xl"></i>
@@ -312,7 +310,6 @@
       </div>
     </nav>
 
-    <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden hidden bg-white/70 backdrop-blur-sm border-t border-slate-100">
       <div class="px-3 py-4 space-y-2">
         <a href="#home" data-navlink="home"
@@ -329,13 +326,9 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="pt-24">
-    <!-- HOME -->
     <section data-page="home" id="home">
-      <!-- Hero -->
       <div class="relative pt-20 pb-32 overflow-hidden">
-        <!-- Gradient background layers -->
         <div class="absolute inset-0 -z-20 bg-gradient-to-b from-bg-light to-bg-subtle"></div>
         <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary-400 opacity-20 rounded-full blur-3xl">
         </div>
@@ -364,7 +357,6 @@
             </a>
           </div>
 
-          <!-- Premium Stats -->
           <div class="flex justify-center gap-10 text-center">
             <div>
               <p class="text-3xl font-bold text-primary-600">50M+</p>
@@ -382,7 +374,6 @@
         </div>
       </div>
 
-      <!-- PREMIUM SCREENSHOT CAROUSEL -->
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-extrabold text-slate-900 mb-4">
@@ -395,7 +386,6 @@
         <div class="coverflow-container">
           <div id="coverflow" class="coverflow-track">
 
-            <!-- Add as many images as you want -->
             <div class="coverflow-item">
               <img src="./assets/netramusic_1.png" alt="SS_1" />
             </div>
@@ -449,7 +439,6 @@
       </div>
 
 
-      <!-- NEXT GEN FEATURES -->
       <div class="py-24 bg-gradient-to-b from-bg-light to-bg-subtle">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
@@ -464,7 +453,6 @@
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-            <!-- Music Trivia Arena -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -479,7 +467,6 @@
               </p>
             </div>
 
-            <!-- Private Vault -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -494,7 +481,6 @@
               </p>
             </div>
 
-            <!-- Ringtone Cutter -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -509,7 +495,6 @@
               </p>
             </div>
 
-            <!-- Musical Map -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -524,7 +509,6 @@
               </p>
             </div>
 
-            <!-- Netra Connect -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -539,7 +523,6 @@
               </p>
             </div>
 
-            <!-- Party Chat -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -554,7 +537,6 @@
               </p>
             </div>
 
-            <!-- Democracy Queue -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -569,7 +551,6 @@
               </p>
             </div>
 
-            <!-- Netra Wrapped -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -584,7 +565,6 @@
               </p>
             </div>
 
-            <!-- Audio Aura -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -599,7 +579,6 @@
               </p>
             </div>
 
-            <!-- Time Machine -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -614,7 +593,6 @@
               </p>
             </div>
 
-            <!-- Spotify Integration -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -629,7 +607,6 @@
               </p>
             </div>
 
-            <!-- Recommendations -->
             <div class="glass-card p-8">
               <div class="flex items-center gap-4 mb-4">
                 <div
@@ -647,7 +624,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section data-page="about" id="about">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div class="max-w-3xl mx-auto">
@@ -677,7 +653,6 @@
       </div>
     </section>
 
-    <!-- PRIVACY -->
     <section data-page="privacy" id="privacy">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div class="max-w-3xl mx-auto">
@@ -716,7 +691,6 @@
       </div>
     </section>
 
-    <!-- UPDATES -->
     <section data-page="updates" id="updates">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div class="max-w-3xl mx-auto">
@@ -733,7 +707,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="border-t border-slate-100 mt-8" style="background: rgba(255,255,255,0.6);">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -769,7 +742,6 @@
     </div>
   </footer>
 
-  <!-- WARNING MODAL -->
   <div id="warning-modal" class="flex">
     <div class="glass-card max-w-md w-full m-4 p-6 animate-scale-in">
       <div class="flex justify-between items-center mb-4">
