@@ -1,15 +1,15 @@
 [
   {
     "version": "2.0.0 (Latest)",
-    "date": "Febuary 12, 2026",
+    "date": "Febuary 14, 2026",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
     "downloadUrl": [
       {
-        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.2.0.0-arm64-v8a-release.apk",
-        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.2.0.0-armeabi-v7a-release.apk",
-        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.2.0.0-universal-release.apk"
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.0-universal-release.apk"
       }
     ],
     "changelog": [
