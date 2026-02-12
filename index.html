@@ -194,6 +194,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      touch-action: pan-y;
     }
 
     .coverflow-track {
@@ -986,26 +987,25 @@
       let currentIndex = Math.floor(items.length / 2);
 
       function updateCoverflow() {
-
         const isMobile = window.innerWidth <= 768;
 
-        const spacing = isMobile
-          ? Math.min(window.innerWidth * 0.35, 130)
-          : 200;
-        const depth = isMobile ? 120 : 280;
-        const rotate = isMobile ? 25 : 40;
-        const scaleSide = isMobile ? 0.85 : 0.8;
-        const blurAmount = isMobile ? 0 : 2;
+        // Dynamic values based on screen size
+        const spacing = isMobile ? Math.min(window.innerWidth * 0.38, 140) : 220;
+        const depth = isMobile ? 150 : 300;
+        const rotate = isMobile ? 30 : 45;
+        const scaleSide = isMobile ? 0.8 : 0.75;
         const translateY = isMobile ? 0 : 40;
 
         items.forEach((item, index) => {
-
           const offset = index - currentIndex;
+          const absOffset = Math.abs(offset);
 
           item.style.left = "50%";
           item.style.transformOrigin = "center center";
 
-          if (offset === 0) {
+          // CORE CHANGE: Only show current, previous, and next
+          if (absOffset === 0) {
+            // Focused (Front) Item
             item.style.transform = `
         translateX(-50%)
         translateY(${translateY}px)
@@ -1015,18 +1015,28 @@
       `;
             item.style.opacity = "1";
             item.style.zIndex = "100";
+            item.style.visibility = "visible";
             item.style.filter = "none";
-          } else {
+          } else if (absOffset === 1) {
+            // Immediate Left/Right Neighbors
             item.style.transform = `
         translateX(calc(-50% + ${offset * spacing}px))
         translateY(${translateY}px)
-        translateZ(${Math.abs(offset) * -depth}px)
+        translateZ(0px)
         rotateY(${offset * -rotate}deg)
         scale(${scaleSide})
       `;
-            item.style.opacity = "0.7";
-            item.style.zIndex = 100 - Math.abs(offset);
-            item.style.filter = `blur(${blurAmount}px)`;
+            item.style.opacity = "0.6";
+            item.style.zIndex = "50";
+            item.style.visibility = "visible";
+            item.style.filter = isMobile ? "none" : "blur(2px)";
+          } else {
+            // Everything else is hidden
+            item.style.opacity = "0";
+            item.style.visibility = "hidden";
+            item.style.zIndex = "0";
+            // We keep a slight transform so they transition smoothly when sliding in
+            item.style.transform = `translateX(calc(-50% + ${offset * spacing}px)) scale(0.5)`;
           }
         });
       }
