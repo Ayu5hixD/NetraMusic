@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   <title>NetraMusic - Stream Music</title>
 
   <meta name="theme-color" content="#3BB6FF" />
@@ -978,70 +978,62 @@
 
     // COVERFLOW LOGIC
     document.addEventListener("DOMContentLoaded", function () {
-
       const coverflow = document.getElementById("coverflow");
       if (!coverflow) return;
 
       const items = Array.from(coverflow.querySelectorAll(".coverflow-item"));
-
-      let currentIndex = Math.floor(items.length / 2);
+      let currentIndex = 0; // Start at first image
+      let autoRotate = setInterval(nextSlide, 3500);
 
       function updateCoverflow() {
         const isMobile = window.innerWidth <= 768;
+        const total = items.length;
 
-        // Dynamic values based on screen size
+        // Responsive settings
         const spacing = isMobile ? Math.min(window.innerWidth * 0.38, 140) : 220;
-        const depth = isMobile ? 150 : 300;
-        const rotate = isMobile ? 30 : 45;
+        const depth = isMobile ? 120 : 300;
+        const rotateAngle = isMobile ? 25 : 45;
         const scaleSide = isMobile ? 0.8 : 0.75;
-        const translateY = isMobile ? 0 : 40;
+        const yOffset = isMobile ? 40 : 60;
 
         items.forEach((item, index) => {
-          const offset = index - currentIndex;
+          // 1. CIRCULAR OFFSET CALCULATION
+          // This makes the last image appear next to the first image
+          let offset = index - currentIndex;
+          if (offset > total / 2) offset -= total;
+          if (offset < -total / 2) offset += total;
+
           const absOffset = Math.abs(offset);
 
           item.style.left = "50%";
           item.style.transformOrigin = "center center";
 
-          // CORE CHANGE: Only show current, previous, and next
+          // 2. ONLY SHOW 3 IMAGES (Center, Left, Right)
           if (absOffset === 0) {
-            // Focused (Front) Item
-            item.style.transform = `
-        translateX(-50%)
-        translateY(${translateY}px)
-        translateZ(${depth}px)
-        rotateY(0deg)
-        scale(1)
-      `;
+            // Center Image (Zoomed)
+            item.style.transform = `translateX(-50%) translateY(${yOffset}px) translateZ(${depth}px) rotateY(0deg) scale(1.1)`;
             item.style.opacity = "1";
+            item.style.visibility = "visible";
             item.style.zIndex = "100";
-            item.style.visibility = "visible";
             item.style.filter = "none";
-          } else if (absOffset === 1) {
-            // Immediate Left/Right Neighbors
-            item.style.transform = `
-        translateX(calc(-50% + ${offset * spacing}px))
-        translateY(${translateY}px)
-        translateZ(0px)
-        rotateY(${offset * -rotate}deg)
-        scale(${scaleSide})
-      `;
-            item.style.opacity = "0.6";
-            item.style.zIndex = "50";
+          } else if (absOffset <= 1) {
+            // Neighbor Images (Left & Right)
+            item.style.transform = `translateX(calc(-50% + ${offset * spacing}px)) translateY(${yOffset}px) rotateY(${offset * -rotateAngle}deg) scale(${scaleSide})`;
+            item.style.opacity = "0.5";
             item.style.visibility = "visible";
+            item.style.zIndex = "50";
             item.style.filter = isMobile ? "none" : "blur(2px)";
           } else {
-            // Everything else is hidden
+            // 3. HIDE ALL OTHER IMAGES
+            // This stops the mobile browser from zooming out to fit 16 images
             item.style.opacity = "0";
             item.style.visibility = "hidden";
             item.style.zIndex = "0";
-            // We keep a slight transform so they transition smoothly when sliding in
-            item.style.transform = `translateX(calc(-50% + ${offset * spacing}px)) scale(0.5)`;
+            // Position them behind the center so they don't cause overflow
+            item.style.transform = `translateX(-50%) translateY(${yOffset}px) scale(0.5)`;
           }
         });
       }
-
-      window.addEventListener("resize", updateCoverflow);
 
       function nextSlide() {
         currentIndex = (currentIndex + 1) % items.length;
@@ -1053,10 +1045,33 @@
         updateCoverflow();
       }
 
-      /* Auto rotate */
-      setInterval(nextSlide, 3500);
+      // --- INTERACTION HANDLERS ---
 
-      /* Click to focus */
+      // Stop auto-rotate on touch/hover
+      const stopAuto = () => clearInterval(autoRotate);
+      const startAuto = () => {
+        stopAuto();
+        autoRotate = setInterval(nextSlide, 3500);
+      };
+
+      coverflow.addEventListener('mouseenter', stopAuto);
+      coverflow.addEventListener('mouseleave', startAuto);
+
+      /* Touch swipe logic */
+      let startX = 0;
+      coverflow.addEventListener("touchstart", e => {
+        stopAuto();
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      coverflow.addEventListener("touchend", e => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 40) nextSlide();
+        if (endX - startX > 40) prevSlide();
+        startAuto();
+      }, { passive: true });
+
+      /* Click image to focus */
       items.forEach((item, index) => {
         item.addEventListener("click", () => {
           currentIndex = index;
@@ -1064,19 +1079,7 @@
         });
       });
 
-      /* Touch swipe */
-      let startX = 0;
-
-      coverflow.addEventListener("touchstart", e => {
-        startX = e.touches[0].clientX;
-      });
-
-      coverflow.addEventListener("touchend", e => {
-        const endX = e.changedTouches[0].clientX;
-        if (startX - endX > 30) nextSlide();
-        if (endX - startX > 30) prevSlide();
-      });
-
+      window.addEventListener("resize", updateCoverflow);
       updateCoverflow();
     });
   </script>
