@@ -62,7 +62,7 @@
   {
     "version": "1.4.0",
     "date": "January 10, 2026",
-    "icon": "fa-mic",
+    "icon": "fa-microphone",
     "color": "bg-gray-500",
     "ring": "ring-gray-500/10",
     "downloadUrl": [
