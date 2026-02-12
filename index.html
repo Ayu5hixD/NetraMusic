@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NetraMusic - Stream Music</title>
 
+  <meta name="theme-color" content="#3BB6FF" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -82,6 +86,16 @@
       color-scheme: light;
     }
 
+    h1,
+    h2,
+    h3 {
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(180deg, #F6FBFF 0%, #E9F5FF 100%);
@@ -100,12 +114,21 @@
 
     /* Frosted glass card */
     .glass-card {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(59, 182, 255, 0.12);
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(59, 182, 255, 0.06);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 24px;
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.03),
+        0 20px 60px rgba(59, 182, 255, 0.08);
+      transition: all .4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.06),
+        0 30px 80px rgba(59, 182, 255, 0.18);
     }
 
     /* Subtle separator line */
@@ -160,10 +183,89 @@
     .animate-hidden {
       opacity: 0;
     }
+
+    /* Premium Screenshot Carousel */
+    .screenshot-item {
+      width: 200px;
+      height: 400px;
+      flex-shrink: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(59, 182, 255, 0.12);
+      transform: perspective(1000px) rotateY(0deg);
+      transition: transform .5s ease, box-shadow .5s ease;
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .screenshot-item:hover {
+      transform: perspective(1000px) rotateY(6deg) scale(1.07);
+      box-shadow: 0 20px 60px rgba(59, 182, 255, 0.25);
+    }
+
+    /* Responsive sizing */
+    @media (max-width: 768px) {
+      .screenshot-item {
+        width: 140px;
+        height: 260px;
+      }
+    }
+
+    /* Premium Infinite Carousel */
+
+    @keyframes autoSlide {
+      0% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(-25%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-carousel {
+      animation: autoSlide 45s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes blob {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+
+      33% {
+        transform: translate(120px, -60px) scale(1.1);
+      }
+
+      66% {
+        transform: translate(-80px, 40px) scale(0.9);
+      }
+
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+
+    .animate-blob {
+      animation: blob 22s infinite ease-in-out;
+    }
   </style>
 </head>
 
 <body class="antialiased">
+  <div class="fixed inset-0 -z-20 overflow-hidden">
+    <div class="absolute w-[700px] h-[700px] bg-primary-300 rounded-full blur-3xl opacity-20 animate-blob"></div>
+  </div>
+
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
     style="background: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(15,23,42,0.04);">
@@ -224,174 +326,419 @@
     <!-- HOME -->
     <section data-page="home" id="home">
       <!-- Hero -->
-      <div class="relative pt-16 pb-24 overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-56 -z-10"
-          style="background: radial-gradient(800px 200px at 10% 0%, rgba(59,182,255,0.12), transparent 30%);"></div>
+      <div class="relative pt-20 pb-32 overflow-hidden">
+        <!-- Gradient background layers -->
+        <div class="absolute inset-0 -z-20 bg-gradient-to-b from-bg-light to-bg-subtle"></div>
+        <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary-400 opacity-20 rounded-full blur-3xl">
+        </div>
+        <div class="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-primary-300 opacity-20 rounded-full blur-3xl">
+        </div>
 
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-slide-in-up">
-          <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 leading-tight">
-            All your music.
-            <br class="hidden md:block" />
-            <span class="text-gradient">One seamless stream.</span>
+        <div class="container mx-auto px-6 text-center">
+          <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-tight mb-6">
+            Experience Music
+            <br />
+            <span class="text-gradient">Like Never Before</span>
           </h1>
-          <p class="max-w-2xl mx-auto text-lg text-slate-600 mb-8">
-            Stream millions of tracks, build playlists, and enjoy lossless-quality audio anywhere, anytime.
+
+          <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10">
+            Studio-grade playback. AI personalization. Seamless cross-device streaming.
           </p>
 
-          <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <div class="flex flex-col sm:flex-row justify-center gap-6 mb-14">
             <a href="#"
-              class="download-app-link inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-xl shadow-soft-glow transition text-lg">
-              <i class="fa-solid fa-cloud-arrow-down"></i> Download App
+              class="download-app-link bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl transition transform hover:scale-105">
+              Download Now
             </a>
+            <a href="#updates"
+              class="border border-primary-300 px-8 py-4 rounded-2xl font-semibold hover:bg-primary-50 transition">
+              View Updates
+            </a>
+          </div>
 
-            <a href="http://telegram.dog/netraplay"
-              class="inline-flex items-center gap-2 border border-primary-200 text-primary-700 font-semibold px-6 py-3 rounded-xl hover:bg-primary-50 transition">
-              <i class="fa-brands fa-telegram"></i> Join TG Channel
-            </a>
+          <!-- Premium Stats -->
+          <div class="flex justify-center gap-10 text-center">
+            <div>
+              <p class="text-3xl font-bold text-primary-600">50M+</p>
+              <p class="text-slate-500 text-sm">Tracks</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary-600">4.9★</p>
+              <p class="text-slate-500 text-sm">User Rating</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary-600">100+</p>
+              <p class="text-slate-500 text-sm">Users</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Screenshots -->
+      <!-- PREMIUM SCREENSHOT CAROUSEL -->
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
-        <h2 class="text-2xl font-semibold text-slate-900 mb-4">App Screenshots</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
-            <img src="./assets/netramusic_1.png" alt="Home screen" class="h-full contain" />
-          </div>
-          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
-            <img src="./assets/netramusic_2.png" alt="Now playing" class="h-full contain" />
-          </div>
-          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
-            <img src="./assets/netramusic_3.png" alt="Playlist" class="h-full contain" />
-          </div>
-          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
-            <img src="./assets/netramusic_4.png" alt="Search" class="h-full contain" />
-          </div>
-          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
-            <img src="./assets/netramusic_5.png" alt="Library" class="h-full contain" />
-          </div>
-          <div class="aspect-[9/16] rounded-xl overflow-hidden transform hover:scale-105 transition shadow-soft-blue">
-            <img src="./assets/netramusic_6.png" alt="Settings" class="h-full contain" />
-          </div>
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-extrabold text-slate-900 mb-4">
+            A Premium Experience
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Explore the elegance of NetraMusic through a seamless visual showcase.
+          </p>
         </div>
-      </div>
+        <div class="relative overflow-hidden">
+          <div id="screenshot-track" class="flex gap-6 w-max animate-carousel">
 
-      <!-- Features -->
-      <div class="py-20 sm:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-            <div class="glass-card p-8 animate-slide-in-up animate-hidden">
-              <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 mb-4 mx-auto">
-                <i class="fa-solid fa-headphones text-primary-600 text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900 mb-2">High-Quality Audio</h3>
-              <p class="text-slate-600">Adaptive bitrate streaming with near-lossless playback for audiophiles.</p>
+            <!-- Add as many images as you want -->
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_1.png" alt="SS_1" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_2.png" alt="SS_2" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_3.png" alt="SS_3" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_4.png" alt="SS_4" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_5.png" alt="SS_5" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_6.png" alt="SS_6" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_7.png" alt="SS_7" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_8.png" alt="SS_8" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_9.png" alt="SS_9" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_10.png" alt="SS_10" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_11.png" alt="SS_11" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_12.png" alt="SS_12" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_13.png" alt="SS_13" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_14.png" alt="SS_14" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_15.png" alt="SS_15" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_16.png" alt="SS_16" />
             </div>
 
-            <div class="glass-card p-8 animate-slide-in-up animate-hidden">
-              <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 mb-4 mx-auto">
-                <i class="fa-solid fa-list text-primary-600 text-2xl"></i>
+            <!-- Duplicate first few for seamless infinite scroll -->
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_1.png" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_2.png" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_3.png" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_4.png" />
+            </div>
+            <div class="screenshot-item">
+              <img src="./assets/netramusic_5.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- NEXT GEN FEATURES -->
+      <div class="py-24 bg-gradient-to-b from-bg-light to-bg-subtle">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-4">
+              Next-Generation Music Experience
+            </h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">
+              Beyond streaming. NetraMusic transforms listening into an intelligent,
+              interactive, and immersive ecosystem.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <!-- Music Trivia Arena -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Music Trivia Arena</h3>
               </div>
-              <h3 class="text-xl font-semibold text-slate-900 mb-2">Playlists & Libraries</h3>
-              <p class="text-slate-600">Create, save, and share playlists. Smart sorting and quick access to favorites.
+              <p class="text-slate-600">
+                Offline snippet-based quiz mode with high scores and QuizProvider logic.
+                Turn your own music library into a competitive game.
               </p>
             </div>
 
-            <div class="glass-card p-8 animate-slide-in-up animate-hidden">
-              <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 mb-4 mx-auto">
-                <i class="fa-solid fa-down-left-and-up-right-to-center text-primary-600 text-2xl"></i>
+            <!-- Private Vault -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Private Vault</h3>
               </div>
-              <h3 class="text-xl font-semibold text-slate-900 mb-2">Offline Listening</h3>
-              <p class="text-slate-600">Download tracks and playlists to play when you're offline or on the move.</p>
+              <p class="text-slate-600">
+                Biometric-secured vault with isolated Sembast storage for private audio.
+                Your hidden tracks stay protected.
+              </p>
+            </div>
+
+            <!-- Ringtone Cutter -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-scissors"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Ringtone Cutter</h3>
+              </div>
+              <p class="text-slate-600">
+                Built-in waveform editor powered by FFmpeg trimming.
+                Create custom ringtones directly inside the app.
+              </p>
+            </div>
+
+            <!-- Musical Map -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Musical Map</h3>
+              </div>
+              <p class="text-slate-600">
+                Geo-tagged listening history with interactive map markers.
+                Relive memories through music and location.
+              </p>
+            </div>
+
+            <!-- Netra Connect -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-tv"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Netra Connect</h3>
+              </div>
+              <p class="text-slate-600">
+                WebSocket-powered TV remote control with real-time state sync.
+                Seamless cross-device control.
+              </p>
+            </div>
+
+            <!-- Party Chat -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-comments"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Party Chat</h3>
+              </div>
+              <p class="text-slate-600">
+                Firebase Realtime powered group chat with unread badges
+                for collaborative listening sessions.
+              </p>
+            </div>
+
+            <!-- Democracy Queue -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-people-group"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Democracy Queue</h3>
+              </div>
+              <p class="text-slate-600">
+                Real-time voting system that auto-sorts party playlists
+                based on collective preference.
+              </p>
+            </div>
+
+            <!-- Netra Wrapped -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-cube"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Netra Wrapped</h3>
+              </div>
+              <p class="text-slate-600">
+                On-demand listening reports with Vibe Score,
+                Discovery Ratio, animated Story Mode, and shareable badges.
+              </p>
+            </div>
+
+            <!-- Audio Aura -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-music"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Audio Aura Personas</h3>
+              </div>
+              <p class="text-slate-600">
+                AI-driven listening personas with visual mesh gradients,
+                skip/binge detection, and behavioral analytics.
+              </p>
+            </div>
+
+            <!-- Time Machine -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-calendar"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Time Machine</h3>
+              </div>
+              <p class="text-slate-600">
+                Calendar-based listening history view.
+                Revisit what you were playing on any day in the past.
+              </p>
+            </div>
+
+            <!-- Spotify Integration -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-spotify"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Spotify Integration</h3>
+              </div>
+              <p class="text-slate-600">
+                Seamlessly connect your Spotify account to sync playlists, discover new tracks, and enhance your
+                listening experience.
+              </p>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="glass-card p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary-100 flex items-center justify-center text-primary-600 text-lg">
+                  <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-900">Personalized Recommendations</h3>
+              </div>
+              <p class="text-slate-600">
+                Get music suggestions tailored to your taste, mood, and listening habits.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section data-page="about" id="about">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-3xl mx-auto">
-          <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 text-center">About <span
-              class="text-gradient">NetraMusic</span></h1>
-          <p class="text-center text-slate-600 mb-10">We build a simple, elegant listening experience focused only on
-            music.</p>
+      <!-- ABOUT -->
+      <section data-page="about" id="about">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 text-center">About <span
+                class="text-gradient">NetraMusic</span></h1>
+            <p class="text-center text-slate-600 mb-10">We build a simple, elegant listening experience focused only on
+              music.</p>
 
-          <div class="glass-card p-8 space-y-6">
-            <div>
-              <h2 class="text-xl font-semibold text-slate-900 mb-2">Our Story</h2>
-              <p class="text-slate-600 leading-relaxed">Founded in 2025, NetraMusic began as a focused project: bring
-                music discovery and playback into a single lightweight app. We care about sound quality, design, and
-                speed.</p>
-            </div>
+            <div class="glass-card p-8 space-y-6">
+              <div>
+                <h2 class="text-xl font-semibold text-slate-900 mb-2">Our Story</h2>
+                <p class="text-slate-600 leading-relaxed">Founded in 2025, NetraMusic began as a focused project: bring
+                  music discovery and playback into a single lightweight app. We care about sound quality, design, and
+                  speed.</p>
+              </div>
 
-            <div>
-              <h2 class="text-xl font-semibold text-slate-900 mb-2">How We Work</h2>
-              <p class="text-slate-600 leading-relaxed">NetraMusic aggregates publicly available metadata and licensed
-                stream links to present an elegant player UI. <strong>We do not host copyrighted audio on our
-                  servers.</strong> We act as an aggregator and player - we rely on public/licensed sources for streams
-                and metadata.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRIVACY -->
-    <section data-page="privacy" id="privacy">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-3xl mx-auto">
-          <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 text-center">Privacy Policy</h1>
-          <p class="text-center text-slate-500 mb-8">Last updated: November 13, 2025</p>
-
-          <div class="glass-card p-8 space-y-6 text-slate-700 leading-relaxed">
-            <p>Welcome to NetraMusic. This policy explains what data we collect, how it's used, and your rights.</p>
-
-            <h3 class="text-lg font-semibold">1. Information We Collect</h3>
-            <ul class="list-disc pl-5 space-y-2">
-              <li><strong>Personal Data:</strong> Information you provide (email for account/support).</li>
-              <li><strong>Technical Data:</strong> IP address, device model, OS version, app version, crash logs.</li>
-              <li><strong>Usage Data:</strong> Aggregated, anonymized metrics to improve the product.</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold">2. How We Use Data</h3>
-            <p>We use data to operate the service, provide support, fix issues, and improve features. We do not sell
-              your personal data or use listening history for targeted advertising.</p>
-
-            <h3 class="text-lg font-semibold">3. Sharing</h3>
-            <p>We may share limited data with service providers, for legal requirements, or as anonymized aggregated
-              statistics.</p>
-
-            <h3 class="text-lg font-semibold">4. Copyright & Takedowns</h3>
-            <p>NetraMusic does not host audio. If you are a rights holder and find infringing content linked through our
-              app, contact <a href="mailto:netraplay@gmail.com" class="text-primary-600">netraplay@gmail.com</a> with
-              a valid DMCA notice.</p>
-
-            <h3 class="text-lg font-semibold">5. Contact</h3>
-            <p>Questions or requests about data: <a href="mailto:netraplay@gmail.com"
-                class="text-primary-600">netraplay@gmail.com</a>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- UPDATES -->
-    <section data-page="updates" id="updates">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-3xl mx-auto">
-          <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 text-center">App Updates & Changelog</h1>
-
-          <div id="timeline-container" class="space-y-8">
-            <div id="timeline-loading" class="text-center">
-              <i class="fa-solid fa-spinner fa-spin text-primary-500 text-3xl"></i>
-              <p class="text-slate-500 mt-2">Loading updates...</p>
+              <div>
+                <h2 class="text-xl font-semibold text-slate-900 mb-2">How We Work</h2>
+                <p class="text-slate-600 leading-relaxed">NetraMusic aggregates publicly available metadata and licensed
+                  stream links to present an elegant player UI. <strong>We do not host copyrighted audio on our
+                    servers.</strong> We act as an aggregator and player - we rely on public/licensed sources for
+                  streams
+                  and metadata.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- PRIVACY -->
+      <section data-page="privacy" id="privacy">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 text-center">Privacy Policy</h1>
+            <p class="text-center text-slate-500 mb-8">Last updated: November 13, 2025</p>
+
+            <div class="glass-card p-8 space-y-6 text-slate-700 leading-relaxed">
+              <p>Welcome to NetraMusic. This policy explains what data we collect, how it's used, and your rights.</p>
+
+              <h3 class="text-lg font-semibold">1. Information We Collect</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Personal Data:</strong> Information you provide (email for account/support).</li>
+                <li><strong>Technical Data:</strong> IP address, device model, OS version, app version, crash logs.</li>
+                <li><strong>Usage Data:</strong> Aggregated, anonymized metrics to improve the product.</li>
+              </ul>
+
+              <h3 class="text-lg font-semibold">2. How We Use Data</h3>
+              <p>We use data to operate the service, provide support, fix issues, and improve features. We do not sell
+                your personal data or use listening history for targeted advertising.</p>
+
+              <h3 class="text-lg font-semibold">3. Sharing</h3>
+              <p>We may share limited data with service providers, for legal requirements, or as anonymized aggregated
+                statistics.</p>
+
+              <h3 class="text-lg font-semibold">4. Copyright & Takedowns</h3>
+              <p>NetraMusic does not host audio. If you are a rights holder and find infringing content linked through
+                our
+                app, contact <a href="mailto:netraplay@gmail.com" class="text-primary-600">netraplay@gmail.com</a> with
+                a valid DMCA notice.</p>
+
+              <h3 class="text-lg font-semibold">5. Contact</h3>
+              <p>Questions or requests about data: <a href="mailto:netraplay@gmail.com"
+                  class="text-primary-600">netraplay@gmail.com</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPDATES -->
+      <section data-page="updates" id="updates">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 text-center">App Updates & Changelog</h1>
+
+            <div id="timeline-container" class="space-y-8">
+              <div id="timeline-loading" class="text-center">
+                <i class="fa-solid fa-spinner fa-spin text-primary-500 text-3xl"></i>
+                <p class="text-slate-500 mt-2">Loading updates...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
   </main>
 
   <!-- FOOTER -->
@@ -455,6 +802,7 @@
       universal: "Universal (All Devices)",
       "arm64-v8a": "Modern 64-bit Phones",
       "armeabi-v7a": "Older Phones / Android TV",
+      x86_64: "Emulator / PC (64-bit)",
     };
 
     const getArchDisplayName = (arch) => archDisplayNames[arch] || arch;
@@ -666,4 +1014,3 @@
 </body>
 
 </html>
-
