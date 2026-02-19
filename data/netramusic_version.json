@@ -1,13 +1,13 @@
 {
   "latestVersion": "2.0.2",
-  "latestBuildNumber": 2016,
+  "latestBuildNumber": 2017,
   "forceUpdate": true,
   "spClientID": "39b6391988b644ffbdaade9ed5ed37fd",
   "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Team Netra",
   "changelog": [
     {
       "type": "NEW",
-      "text": "Added default Spotify Client ID for direct login and playlist sync."
+      "text": "Added a default Spotify Client ID for direct login and playlist sync; other users can enter their own Client ID for access."
     },
     {
       "type": "FIX",
