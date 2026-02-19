@@ -1,7 +1,7 @@
 [
   {
     "version": "2.0.2 (Latest)",
-    "date": "Febuary 18, 2026",
+    "date": "Febuary 20, 2026",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
@@ -15,7 +15,7 @@
     "changelog": [
       {
         "type": "NEW",
-        "text": "Added default Spotify Client ID for direct login and playlist sync."
+        "text": "Added a default Spotify Client ID for direct login and playlist sync; other users can enter their own Client ID for access."
       },
       {
         "type": "FIX",
