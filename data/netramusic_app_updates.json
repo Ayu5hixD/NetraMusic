@@ -1,10 +1,46 @@
 [
   {
-    "version": "2.0.2 (Latest)",
-    "date": "Febuary 20, 2026",
+    "version": "2.0.3 (Latest)",
+    "date": "March 8, 2026",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Complete overhaul of Android TV UI/UX for a cleaner and smoother experience."
+      },
+      {
+        "type": "NEW",
+        "text": "Improved Android TV navigation with smoother D-Pad controls and a TV-friendly virtual keyboard."
+      },
+      {
+        "type": "FIX",
+        "text": "Fixed issue where the Mobile-to-TV QR code sometimes didn’t appear."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Music Party UI improved with quick room code copy, live user count, and fast join option."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "App now starts in Dark Mode with a redesigned Changelog viewer in Settings."
+      }
+    ]
+  },
+  {
+    "version": "2.0.2",
+    "date": "Febuary 20, 2026",
+    "icon": "fa-rocket",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.2-arm64-v8a-release.apk",
