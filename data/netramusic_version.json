@@ -1,29 +1,37 @@
 {
-  "latestVersion": "2.0.2",
-  "latestBuildNumber": 2017,
+  "latestVersion": "2.0.3",
+  "latestBuildNumber": 2018,
   "forceUpdate": true,
   "spClientID": "39b6391988b644ffbdaade9ed5ed37fd",
   "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Team Netra",
   "changelog": [
     {
       "type": "NEW",
-      "text": "Added a default Spotify Client ID for direct login and playlist sync; other users can enter their own Client ID for access."
+      "text": "Complete overhaul of Android TV UI/UX for a cleaner and smoother experience."
+    },
+    {
+      "type": "NEW",
+      "text": "Improved Android TV navigation with smoother D-Pad controls and a TV-friendly virtual keyboard."
     },
     {
       "type": "FIX",
-      "text": "Fixed startup black screen and occasional app freeze."
+      "text": "Fixed issue where the Mobile-to-TV QR code sometimes didn’t appear."
     },
     {
       "type": "IMPROVEMENT",
-      "text": "Music Party now supports albums and playlists with friends."
+      "text": "Music Party UI improved with quick room code copy, live user count, and fast join option."
+    },
+    {
+      "type": "IMPROVEMENT",
+      "text": "App now starts in Dark Mode with a redesigned Changelog viewer in Settings."
     }
   ],
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "downloadUrl": [
     {
-      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.2-arm64-v8a-release.apk",
-      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.2-armeabi-v7a-release.apk",
-      "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.2-universal-release.apk"
+      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-armeabi-v7a-release.apk",
+      "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-universal-release.apk"
     }
   ],
   "lockApp": false,
