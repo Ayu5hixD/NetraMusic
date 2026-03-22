@@ -1,10 +1,38 @@
 [
   {
-    "version": "2.0.3 (Latest)",
-    "date": "March 8, 2026",
+    "version": "2.0.4 (Latest)",
+    "date": "March 22, 2026",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added TV-specific banner to enhance visual appeal and content discovery."
+      },
+      {
+        "type": "NEW",
+        "text": "Complete overhaul of Android TV UI/UX for a cleaner, modern, and more immersive experience."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Introduced Black-themed UI with Roboto font optimized for Android TV readability."
+      }
+    ]
+  },
+  {
+    "version": "2.0.3",
+    "date": "March 8, 2026",
+    "icon": "fa-ring",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-arm64-v8a-release.apk",
