@@ -796,7 +796,7 @@
 
       <div
         class="text-center text-slate-500 font-medium text-sm mt-10 border-t border-slate-200/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>&copy; 2025 NetraMusic. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> NetraMusic. All rights reserved.</p>
         <p class="flex items-center gap-1">Made with <i class="fa-solid fa-heart text-rose-500 mx-1"></i> for
           audiophiles.</p>
       </div>
@@ -841,6 +841,9 @@
     };
 
     const getArchDisplayName = (arch) => archDisplayNames[arch] || arch;
+
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
 
     async function fetchAppUpdates() {
       const dataUrl = "https://ayu5hixd.github.io/NetraMusic/data/netramusic_app_updates.json";
