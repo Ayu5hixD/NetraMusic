@@ -1,29 +1,37 @@
 {
-  "latestVersion": "2.0.4",
-  "latestBuildNumber": 2021,
+  "latestVersion": "2.1.0",
+  "latestBuildNumber": 2022,
   "forceUpdate": true,
   "spClientID": "39b6391988b644ffbdaade9ed5ed37fd",
   "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Team Netra",
   "changelog": [
     {
-      "type": "NEW",
-      "text": "Added TV-specific banner to enhance visual appeal and content discovery."
+      "type": "MAJOR",
+      "text": "Delivered a comprehensive UI/UX overhaul with modern design elements including glassmorphism, animations, responsive layouts, and redesigned skeleton loaders."
     },
     {
       "type": "NEW",
-      "text": "Complete overhaul of Android TV UI/UX for a cleaner, modern, and more immersive experience."
+      "text": "Enhanced Party Room experience with WhatsApp-style reverse chat scrolling and real-time typing indicators."
     },
     {
-      "type": "IMPROVEMENT",
-      "text": "Introduced Black-themed UI with Roboto font optimized for Android TV readability."
+      "type": "NEW",
+      "text": "Introduced a premium Bottom Sheet-based Sleep Timer with an interactive dashboard and improved usability."
+    },
+    {
+      "type": "FIX",
+      "text": "Resolved Settings AppBar positioning issues and ensured proper cleanup of dialogs and session states on party exit."
+    },
+    {
+      "type": "FIX",
+      "text": "Optimized Provider state management and TV player rendering to reduce unnecessary rebuilds and improve overall performance."
     }
   ],
   "updateUrl": "https://netramusic.vercel.app/#updates",
   "downloadUrl": [
     {
-      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-arm64-v8a-release.apk",
-      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-armeabi-v7a-release.apk",
-      "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-universal-release.apk"
+      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-armeabi-v7a-release.apk",
+      "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-universal-release.apk"
     }
   ],
   "lockApp": false,
