@@ -1,10 +1,62 @@
 [
   {
-    "version": "2.0.4 (Latest)",
-    "date": "March 22, 2026",
+    "version": "2.1.0 (Latest)",
+    "date": "April 04, 2026",
     "icon": "fa-rocket",
     "color": "bg-primary-500",
     "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-universal-release.apk"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "MAJOR",
+        "text": "Delivered a comprehensive UI/UX overhaul with modern design elements including glassmorphism, animations, and responsive layouts."
+      },
+      {
+        "type": "NEW",
+        "text": "Enhanced Party Room chat with WhatsApp-style reverse scrolling for a more natural conversation flow."
+      },
+      {
+        "type": "NEW",
+        "text": "Introduced real-time typing indicators with debounce optimization for smoother user interaction."
+      },
+      {
+        "type": "NEW",
+        "text": "Introduced a premium Bottom Sheet-based Sleep Timer with interactive dashboard and improved usability."
+      },
+      {
+        "type": "FIX",
+        "text": "Resolved Settings screen AppBar positioning by relocating it to the Scaffold for consistent layout behavior."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Ensured proper cleanup of dialogs and session states when the host exits a party room."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Redesigned skeleton loaders to be theme-adaptive and aligned with the updated grid layout."
+      },
+      {
+        "type": "PERFORMANCE",
+        "text": "Optimized Provider state management using granular selectors to reduce unnecessary widget rebuilds."
+      },
+      {
+        "type": "PERFORMANCE",
+        "text": "Improved TV player performance by isolating UI updates and preventing unnecessary re-renders."
+      }
+    ]
+  },
+  {
+    "version": "2.0.4",
+    "date": "March 22, 2026",
+    "icon": "fa-tree",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
     "downloadUrl": [
       {
         "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-arm64-v8a-release.apk",
