@@ -832,6 +832,8 @@
 
   <script>
     let appUpdatesData = [];
+    let visibleCount = 10; // initial load
+    const PAGE_SIZE = 10;
 
     const archDisplayNames = {
       universal: "Universal (All Devices)",
@@ -913,7 +915,10 @@
 
       let allHtml = "";
 
-      appUpdatesData.forEach((update, index) => {
+      const start = visibleCount - PAGE_SIZE;
+      const visibleData = appUpdatesData.slice(start, visibleCount);
+
+      visibleData.forEach((update, index) => {
         const isLatest = index === 0;
         const changelogHtml = `<ul class="space-y-2 mt-4">${(update.changelog || []).map(getChangelogItemHtml).join("")}</ul>`;
         let downloadButtonHtml = '<div class="flex flex-wrap gap-3 mt-6 pt-6 border-t border-slate-200/60">';
@@ -967,7 +972,30 @@
       });
 
       if (loadingEl) loadingEl.style.display = "none";
-      container.innerHTML = allHtml;
+      // Add Show More button if more data exists
+      if (visibleCount < appUpdatesData.length) {
+        allHtml += `
+    <div class="text-center mt-10">
+      <button id="load-more-btn"
+        class="bg-slate-900 text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-primary-600 transition-all">
+        Show More
+      </button>
+    </div>
+  `;
+      }
+
+      if (visibleCount === PAGE_SIZE) {
+        container.innerHTML = allHtml;
+      } else {
+        const temp = document.createElement('div');
+        temp.innerHTML = allHtml;
+
+        const newItems = temp.querySelectorAll('.relative.flex');
+        newItems.forEach(el => container.appendChild(el));
+
+        const btn = document.getElementById('load-more-btn');
+        if (btn) btn.remove();
+      }
 
       container.querySelectorAll('.animate-hidden').forEach(el => {
         setTimeout(() => el.classList.remove('animate-hidden'), 50);
@@ -1056,8 +1084,18 @@
       if (!window.location.hash) window.location.hash = '#home';
 
       timelineContainer.addEventListener('click', function (e) {
+
+        // LOAD MORE
+        if (e.target.closest('#load-more-btn')) {
+          visibleCount += PAGE_SIZE;
+          renderAppUpdates();
+          return;
+        }
+
+        // DOWNLOAD OLD VERSION
         const clicked = e.target.closest('.download-old-version-btn');
         if (!clicked) return;
+
         const url = clicked.getAttribute('data-download-url');
         const version = clicked.getAttribute('data-version');
         const arch = clicked.getAttribute('data-arch');
