@@ -15,39 +15,23 @@
     "changelog": [
       {
         "type": "MAJOR",
-        "text": "Delivered a comprehensive UI/UX overhaul with modern design elements including glassmorphism, animations, and responsive layouts."
+        "text": "Delivered a comprehensive UI/UX overhaul with modern design elements including glassmorphism, animations, responsive layouts, and redesigned skeleton loaders."
       },
       {
         "type": "NEW",
-        "text": "Enhanced Party Room chat with WhatsApp-style reverse scrolling for a more natural conversation flow."
+        "text": "Enhanced Party Room experience with WhatsApp-style reverse chat scrolling and real-time typing indicators."
       },
       {
         "type": "NEW",
-        "text": "Introduced real-time typing indicators with debounce optimization for smoother user interaction."
-      },
-      {
-        "type": "NEW",
-        "text": "Introduced a premium Bottom Sheet-based Sleep Timer with interactive dashboard and improved usability."
+        "text": "Introduced a premium Bottom Sheet-based Sleep Timer with an interactive dashboard and improved usability."
       },
       {
         "type": "FIX",
-        "text": "Resolved Settings screen AppBar positioning by relocating it to the Scaffold for consistent layout behavior."
+        "text": "Resolved Settings AppBar positioning issues and ensured proper cleanup of dialogs and session states on party exit."
       },
       {
-        "type": "IMPROVEMENT",
-        "text": "Ensured proper cleanup of dialogs and session states when the host exits a party room."
-      },
-      {
-        "type": "IMPROVEMENT",
-        "text": "Redesigned skeleton loaders to be theme-adaptive and aligned with the updated grid layout."
-      },
-      {
-        "type": "PERFORMANCE",
-        "text": "Optimized Provider state management using granular selectors to reduce unnecessary widget rebuilds."
-      },
-      {
-        "type": "PERFORMANCE",
-        "text": "Improved TV player performance by isolating UI updates and preventing unnecessary re-renders."
+        "type": "FIX",
+        "text": "Optimized Provider state management and TV player rendering to reduce unnecessary rebuilds and improve overall performance."
       }
     ]
   },
