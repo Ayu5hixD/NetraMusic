@@ -803,7 +803,7 @@
     </div>
   </footer>
 
-  <div id="warning-modal" class="flex">
+  <div id="warning-modal" class="hidden flex">
     <div class="glass-card max-w-md w-full m-4 p-8 relative overflow-hidden">
       <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
 
@@ -827,6 +827,25 @@
           class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold hover:shadow-lg hover:shadow-red-500/30 transition text-center w-full sm:w-auto">Download
           Anyway</a>
       </div>
+    </div>
+  </div>
+
+  <!-- ARCH SELECT MODAL -->
+  <div id="arch-modal"
+    class="hidden fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-md">
+    <div class="glass-card w-full max-w-lg p-8 m-4">
+
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold text-slate-900">Choose Your Device</h2>
+        <button id="arch-close" class="text-slate-400 hover:text-slate-700">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <p class="text-slate-500 mb-6">
+        Select the correct build for best performance and compatibility.
+      </p>
+      <div id="arch-options" class="grid gap-3"></div>
     </div>
   </div>
 
@@ -882,7 +901,10 @@
       const latestUrl = latest.downloadUrl[0].universal;
       if (!latestUrl) return;
 
-      document.querySelectorAll(".download-app-link").forEach(btn => btn.href = latestUrl);
+      document.querySelectorAll(".download-app-link").forEach(btn => {
+        btn.setAttribute("data-latest", "true");
+        btn.href = "#";
+      });
     }
 
     function getChangelogItemHtml(item) {
@@ -1017,6 +1039,43 @@
       const timelineContainer = document.getElementById('timeline-container');
       const header = document.querySelector('header');
 
+      const archModal = document.getElementById("arch-modal");
+      const archOptions = document.getElementById("arch-options");
+      const archClose = document.getElementById("arch-close");
+
+      function openArchModal(links) {
+        archOptions.innerHTML = "";
+
+        Object.keys(links).forEach(arch => {
+          const url = links[arch];
+          if (!url) return;
+
+          const display = getArchDisplayName(arch);
+
+          const btn = document.createElement("a");
+          btn.href = url;
+          btn.addEventListener("click", () => {
+            archModal.classList.add("hidden");
+          });
+          btn.className =
+            "flex items-center justify-between p-4 rounded-xl border border-slate-200 bg-white hover:bg-primary-50 transition font-semibold";
+
+          btn.innerHTML = `
+      <span>${display}</span>
+      <i class="fa-solid fa-download text-primary-500"></i>
+    `;
+
+          archOptions.appendChild(btn);
+        });
+
+        archModal.classList.remove("hidden");
+      }
+
+      archClose.addEventListener("click", () => archModal.classList.add("hidden"));
+      archModal.addEventListener("click", e => {
+        if (e.target === archModal) archModal.classList.add("hidden");
+      });
+
       window.addEventListener('scroll', () => {
         if (window.scrollY > 20) {
           header.classList.add('py-0');
@@ -1038,6 +1097,20 @@
           mobileMenu.classList.add('hidden');
           mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
         }
+      });
+
+      document.querySelectorAll(".download-app-link").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          if (!appUpdatesData || appUpdatesData.length === 0) return;
+
+          const latest = appUpdatesData[0];
+          const links = (latest.downloadUrl && latest.downloadUrl[0]) || {};
+          if (!Object.keys(links).length) return;
+
+          openArchModal(links);
+        });
       });
 
       function showPage(pageId) {
