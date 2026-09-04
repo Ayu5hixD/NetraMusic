@@ -1,0 +1,53 @@
+{
+  "latestVersion": "3.0.0",
+  "latestBuildNumber": 2026,
+  "forceUpdate": true,
+  "spClientID": "39b6391988b644ffbdaade9ed5ed37fd",
+  "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Team Netra",
+  "changelog": [
+    {
+      "type": "NEW",
+      "text": "Added Smart Auto Download, Voice Search, and Deep Link sharing for a smarter music experience."
+    },
+    {
+      "type": "NEW",
+      "text": "Introduced Equalizer, Bass Boost, DSP Audio Engine, and Audio Output device selection."
+    },
+    {
+      "type": "NEW",
+      "text": "Added premium animations, achievement cards, high-resolution artwork, and new interactive UI components."
+    },
+    {
+      "type": "IMPROVEMENT",
+      "text": "Completely redesigned Mobile and Android TV UI with improved navigation, responsiveness, and remote controls."
+    },
+    {
+      "type": "IMPROVEMENT",
+      "text": "Enhanced playback, API performance, loading speed, animations, memory usage, and overall app stability."
+    },
+    {
+      "type": "IMPROEMENT",
+      "text": "Improved Watch Party synchronization, real-time chat, typing indicators, and session management."
+    },
+    {
+      "type": "FIX",
+      "text": "Fixed multiple playback, UI, TV focus, API, and stability issues across the app."
+    }
+  ],
+  "updateUrl": "https://netramusic.vercel.app/#updates",
+  "downloadUrl": [
+    {
+      "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-armeabi-v7a-release.apk",
+      "universal": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-universal-release.apk"
+    }
+  ],
+  "desktopDownloadUrl": [
+    {
+      "windows-x64": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-win-release.exe"
+    }
+  ],
+  "lockApp": false,
+  "lockPassword": "123456",
+  "lockMessage": "The app is temporarily locked for maintenance. Please check back later."
+}

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetraMusic &bull; Assets & Data Hub</title>
+  <meta name="description" content="Official static assets, configuration schemas, and data endpoints for NetraMusic.">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(15, 20, 32, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(99, 102, 241, 0.4);
+      --accent-primary: #6366f1;
+      --accent-cyan: #06b6d4;
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      --text: #f9fafb;
+      --text-dim: #9ca3af;
+      --text-sub: #6b7280;
+      --glow: rgba(99, 102, 241, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+      padding: 2rem 1.25rem;
+    }
+
+    /* Ambient Background Glows */
+    .ambient-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .glow-1 {
+      top: 15%;
+      left: 20%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+      animation: float 12s ease-in-out infinite alternate;
+    }
+
+    .glow-2 {
+      bottom: 15%;
+      right: 20%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+      animation: float 10s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(30px, -40px);
+      }
+    }
+
+    /* Main Container */
+    .hub-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 720px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Centered Brand Header */
+    .logo-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 1.25rem;
+      width: 100%;
+    }
+
+    .app-logo {
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      object-fit: cover;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .hub-container:hover .app-logo {
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    /* Centered Status Badge */
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 1.75rem;
+      width: 100%;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #34d399;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      letter-spacing: 0.03em;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.35);
+        opacity: 0.6;
+      }
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Grid of Hub Sections */
+    .endpoints-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    .endpoint-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.4rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .endpoint-card:hover {
+      background: rgba(255, 255, 255, 0.045);
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(99, 102, 241, 0.12);
+      color: #818cf8;
+      font-size: 1.1rem;
+    }
+
+    .endpoint-card:nth-child(2) .card-icon {
+      background: rgba(6, 182, 212, 0.12);
+      color: #22d3ee;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8125rem;
+      color: var(--text-sub);
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .hub-container {
+        padding: 2.25rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.85rem;
+      }
+
+      .endpoints-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <main class="hub-container">
+    <!-- Centered Logo -->
+    <div class="logo-wrapper">
+      <img src="assets/app_icon.png" alt="NetraMusic Logo" class="app-logo" width="88" height="88">
+    </div>
+
+    <!-- Centered Status Badge -->
+    <div class="badge-container">
+      <div class="status-badge">
+        <span class="pulse-dot"></span>
+        Hub Live &bull; GitHub Pages
+      </div>
+    </div>
+
+    <h1>NetraMusic</h1>
+    <p class="tagline">
+      Official static assets, configuration metadata, and application data feeds powering the NetraMusic ecosystem.
+    </p>
+
+    <div class="endpoints-grid">
+      <!-- Data Endpoint -->
+      <a href="data/netramusic_version.json" class="endpoint-card" target="_blank" rel="noopener noreferrer">
+        <div class="card-header">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Configuration & Data</div>
+        </div>
+        <p class="card-desc">Version manifests, update logs, and addon configs in real-time JSON format.</p>
+      </a>
+
+      <!-- Assets Endpoint -->
+      <a href="assets/site.webmanifest" class="endpoint-card" target="_blank" rel="noopener noreferrer">
+        <div class="card-header">
+          <div class="card-icon">🎨</div>
+          <div class="card-title">Media & App Assets</div>
+        </div>
+        <p class="card-desc">High-resolution icons, app screenshots, vector assets, and web manifests.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 NetraMusic Ecosystem. Hosted with GitHub Pages.
+  </footer>
+</body>
+
+</html>

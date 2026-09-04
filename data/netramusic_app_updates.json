@@ -1,0 +1,770 @@
+[
+  {
+    "version": "3.0.0 (Latest)",
+    "date": "Aug 01, 2026",
+    "icon": "fa-rocket",
+    "color": "bg-primary-500",
+    "ring": "ring-primary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": "https://app.netraplay.workers.dev/1:/app/v3/netramusic.3.0.0-win-release.exe"
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Introduced Smart Auto Download to automatically save your favorite songs over Wi-Fi."
+      },
+      {
+        "type": "NEW",
+        "text": "Added advanced audio engine with Equalizer, Bass Boost, Loudness Enhancement, and DSP processing."
+      },
+      {
+        "type": "NEW",
+        "text": "Introduced audio output device selection for seamless playback routing."
+      },
+      {
+        "type": "NEW",
+        "text": "Added Deep Link support for sharing and opening songs instantly."
+      },
+      {
+        "type": "NEW",
+        "text": "Voice Search with enhanced overlay feedback for faster music discovery."
+      },
+      {
+        "type": "NEW",
+        "text": "Introduced premium UI components, animations, and high-resolution album artwork."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Completely redesigned Android TV experience with responsive layouts and better remote navigation."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Improved playback quality with advanced audio routing and processing."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Optimized performance, reduced UI rebuilds, and improved overall responsiveness."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Enhanced loading experience with improved skeleton screens and smoother animations."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Improved Watch Party synchronization, chat reliability, and typing indicators."
+      },
+      {
+        "type": "FIX",
+        "text": "Resolved multiple UI, TV focus, playback, API, and stability issues."
+      }
+    ]
+  },
+  {
+    "version": "2.1.2",
+    "date": "May 19, 2026",
+    "icon": "fa-bus",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.2-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.2-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.2-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added language-based filters for Top Artists and Top Playlists."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Improved app API performance and stability."
+      }
+    ]
+  },
+  {
+    "version": "2.1.1",
+    "date": "April 19, 2026",
+    "icon": "fa-bug",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.1-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.1-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.1-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Updated app icon with improved visual design."
+      },
+      {
+        "type": "NEW",
+        "text": "Introduced developer chat support."
+      },
+      {
+        "type": "FIX",
+        "text": "Enhanced search bar UI and performance."
+      }
+    ]
+  },
+  {
+    "version": "2.1.0",
+    "date": "April 04, 2026",
+    "icon": "fa-time",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.1.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "MAJOR",
+        "text": "Delivered a comprehensive UI/UX overhaul with modern design elements including glassmorphism, animations, responsive layouts, and redesigned skeleton loaders."
+      },
+      {
+        "type": "NEW",
+        "text": "Enhanced Party Room experience with WhatsApp-style reverse chat scrolling and real-time typing indicators."
+      },
+      {
+        "type": "NEW",
+        "text": "Introduced a premium Bottom Sheet-based Sleep Timer with an interactive dashboard and improved usability."
+      },
+      {
+        "type": "FIX",
+        "text": "Resolved Settings AppBar positioning issues and ensured proper cleanup of dialogs and session states on party exit."
+      },
+      {
+        "type": "FIX",
+        "text": "Optimized Provider state management and TV player rendering to reduce unnecessary rebuilds and improve overall performance."
+      }
+    ]
+  },
+  {
+    "version": "2.0.4",
+    "date": "March 22, 2026",
+    "icon": "fa-tree",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.4-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added TV-specific banner to enhance visual appeal and content discovery."
+      },
+      {
+        "type": "NEW",
+        "text": "Complete overhaul of Android TV UI/UX for a cleaner, modern, and more immersive experience."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Introduced Black-themed UI with Roboto font optimized for Android TV readability."
+      }
+    ]
+  },
+  {
+    "version": "2.0.3",
+    "date": "March 8, 2026",
+    "icon": "fa-ring",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.3-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Complete overhaul of Android TV UI/UX for a cleaner and smoother experience."
+      },
+      {
+        "type": "NEW",
+        "text": "Improved Android TV navigation with smoother D-Pad controls and a TV-friendly virtual keyboard."
+      },
+      {
+        "type": "FIX",
+        "text": "Fixed issue where the Mobile-to-TV QR code sometimes didn’t appear."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Music Party UI improved with quick room code copy, live user count, and fast join option."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "App now starts in Dark Mode with a redesigned Changelog viewer in Settings."
+      }
+    ]
+  },
+  {
+    "version": "2.0.2",
+    "date": "Febuary 20, 2026",
+    "icon": "fa-clock",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.2-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.2-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.2-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added a default Spotify Client ID for direct login and playlist sync; other users can enter their own Client ID for access."
+      },
+      {
+        "type": "FIX",
+        "text": "Fixed startup black screen and occasional app freeze."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Music Party now supports albums and playlists with friends."
+      }
+    ]
+  },
+  {
+    "version": "2.0.1",
+    "date": "Febuary 14, 2026",
+    "icon": "fa-tree",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.1-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.1-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.1-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "FIX",
+        "text": "Fixed chat reply functionality issues in the Party Room to ensure smooth and reliable messaging."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Enhanced the Search screen layout and added a new playlist creation option within the Playlist dialog."
+      }
+    ]
+  },
+  {
+    "version": "2.0.0",
+    "date": "Febuary 13, 2026",
+    "icon": "fa-fire",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v2/netramusic.2.0.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Party Chat using Firebase Realtime Database with unread badges."
+      },
+      {
+        "type": "NEW",
+        "text": "Musical Map with geo-tagged listening history and map markers."
+      },
+      {
+        "type": "NEW",
+        "text": "Music Trivia Arena with offline snippet quiz, high scores, and QuizProvider logic."
+      },
+      {
+        "type": "NEW",
+        "text": "Private Vault with biometric lock and isolated sembast store."
+      },
+      {
+        "type": "NEW",
+        "text": "Integrate built-in Ringtone Cutter with waveform UI and FFmpeg trimming."
+      },
+      {
+        "type": "NEW",
+        "text": "Democracy Queue with real-time voting and auto-sorted party playlist."
+      },
+      {
+        "type": "NEW",
+        "text": "Audio Aura personas based on listening behavior analytics."
+      },
+      {
+        "type": "NEW",
+        "text": "Netra Wrapped on-demand report with vibe score and shareable badges."
+      },
+      {
+        "type": "NEW",
+        "text": "Time Machine calendar view for date-wise listening history."
+      },
+      {
+        "type": "NEW",
+        "text": "Netra Wrapped with animated Story Mode and Discovery Ratio metric."
+      },
+      {
+        "type": "NEW",
+        "text": "Audio Aura with visual mesh gradients, new personas, and skip/binge detection."
+      }
+    ]
+  },
+  {
+    "version": "1.4.0",
+    "date": "January 10, 2026",
+    "icon": "fa-microphone",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.4.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.4.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.4.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added Top, Trending, and Latest JioSaavn online playlists."
+      },
+      {
+        "type": "FIX",
+        "text": "Resolved overwrite issues in Google Drive backup and restore."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Introduced full online playlist import with duplicate handling and local library saving."
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Redesigned Artist screen and added Party Mode with Save to Library support."
+      }
+    ]
+  },
+  {
+    "version": "1.3.3",
+    "date": "December 22, 2025",
+    "icon": "fa-bug",
+    "color": "bg-gray-500",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.3-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.3-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.3-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Add Google Drive Cloud Backup & Restore."
+      },
+      {
+        "type": "NEW",
+        "text": "Add Sleep Timer to auto-pause music."
+      },
+      {
+        "type": "NEW",
+        "text": "Add Global ErrorHandler for unified alerts."
+      },
+      {
+        "type": "FIX",
+        "text": "Fix latest song notifications and improve overall music notification behavior."
+      },
+      {
+        "type": "FIX",
+        "text": "Update Settings UI to show user profile, last backup time, and cloud options."
+      }
+    ]
+  },
+  {
+    "version": "1.3.2",
+    "date": "December 10, 2025",
+    "icon": "fa-music",
+    "color": "bg-gray-600",
+    "ring": "ring-gary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.2-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.2-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.2-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added PIN security for transfers & improve TV focus UX."
+      },
+      {
+        "type": "NEW",
+        "text": "Added Lottie animations and Shimmer loading effects to Mobile and TV screens."
+      },
+      {
+        "type": "FIX",
+        "text": "Fixing the issue where D-pad navigation was unresponsive upon loading."
+      },
+      {
+        "type": "FIX",
+        "text": "Implemented a full analytics strategy to track user engagement, feature usage, and app stability."
+      }
+    ]
+  },
+  {
+    "version": "1.3.1",
+    "date": "December 6, 2025",
+    "icon": "fa-tools",
+    "color": "bg-gray-600",
+    "ring": "ring-gary-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.1-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.1-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.1-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added 'Live Search' functionality with debouncing to search automatically while typing."
+      },
+      {
+        "type": "FIX",
+        "text": "Fixed download queue recursion and added file integrity checks to prevent corrupt downloads."
+      },
+      {
+        "type": "FIX",
+        "text": "Optimized memory usage by resizing cached images (memCache) in lists."
+      },
+      {
+        "type": "FIX",
+        "text": "Improved Audio Handler to show metadata immediately while resolving URLs in the background."
+      },
+      {
+        "type": "FIX",
+        "text": "Moved heavy JSON serialization to a background thread to prevent UI freeze during Sync."
+      }
+    ]
+  },
+  {
+    "version": "1.3.0",
+    "date": "December 5, 2025",
+    "icon": "fa-ring",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.3.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "MAJOR",
+        "text": "Added Android TV support with QR-based playlist sync and smart merging."
+      },
+      {
+        "type": "NEW",
+        "text": "Introduced a custom update system with changelog, progress, auto-retry, and architecture-specific APKs."
+      },
+      {
+        "type": "NEW",
+        "text": "Added big-picture notification images and landscape support for Party Room and Update Dialog."
+      },
+      {
+        "type": "FIX",
+        "text": "Optimized queue updates, fixed player-stop logic, and ensured valid media URLs in search playback."
+      },
+      {
+        "type": "FIX",
+        "text": "Implemented a sequential download queue to prevent memory issues and timeouts."
+      }
+    ]
+  },
+  {
+    "version": "1.2.2",
+    "date": "November 29, 2025",
+    "icon": "fa-drum",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.2-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Added seek slider to Party Room player for synchronized playback control"
+      },
+      {
+        "type": "NEW",
+        "text": "Enabled authorized guests to add songs directly to the queue"
+      },
+      {
+        "type": "NEW",
+        "text": "Added badge notification for pending control requests on Host screen"
+      },
+      {
+        "type": "NEW",
+        "text": "Added visual indicator for existing songs in Party search results"
+      },
+      {
+        "type": "FIX",
+        "text": "Fixed playback interruption bug when switching songs in Party queue"
+      }
+    ]
+  },
+  {
+    "version": "1.2.1",
+    "date": "November 27, 2025",
+    "icon": "fa-music",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.1-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.1-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.1-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "FIX",
+        "text": "Fix notification playback on cold start and AudioHandler state error"
+      }
+    ]
+  },
+  {
+    "version": "1.2.0",
+    "date": "November 26, 2025",
+    "icon": "fa-bullhorn",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.2.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Add hourly music notifications"
+      },
+      {
+        "type": "IMPROVEMENT",
+        "text": "Optimize Music Party Sync"
+      }
+    ]
+  },
+  {
+    "version": "1.1.1",
+    "date": "November 20, 2025",
+    "icon": "fa-tools",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.1-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "FIX",
+        "text": "Enhance Music Party with shared controls, robust sync, and host-from-album"
+      }
+    ]
+  },
+  {
+    "version": "1.1.0",
+    "date": "November 19, 2025",
+    "icon": "fa-podcast",
+    "color": "bg-gary-600",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.1.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "NEW",
+        "text": "Introduce real-time 'Music Party' synchronization feature"
+      }
+    ]
+  },
+  {
+    "version": "1.0.0 : Initial Release",
+    "date": "November 16, 2025",
+    "icon": "fa-music",
+    "color": "bg-gray-600",
+    "ring": "ring-gray-500/10",
+    "downloadUrl": [
+      {
+        "arm64-v8a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-arm64-v8a-release.apk",
+        "armeabi-v7a": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-armeabi-v7a-release.apk",
+        "universal": "https://app.netraplay.workers.dev/1:/app/v1/netramusic.1.0.0-universal-release.apk"
+      }
+    ],
+    "desktopDownloadUrl": [
+      {
+        "windows-x64": ""
+      }
+    ],
+    "changelog": [
+      {
+        "type": "MAJOR",
+        "text": "Initial release: Stream music with sections for Trending, Top Artists, and Albums."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Full offline support with song downloads and an 'Auto-download Liked Songs' feature."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Spotify integration to import 'Liked Songs', 'Top Tracks', and personal playlists."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Personal library with 'Liked Songs' and custom playlist creation."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Advanced music search with voice search capabilities."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Encrypted Backup & Restore for settings, playlists, and liked songs."
+      },
+      {
+        "type": "MAJOR",
+        "text": "Full-featured music player with background playback, queue management, and lyrics."
+      },
+      {
+        "type": "MAJOR",
+        "text": "App customization with Light/Dark themes and multi-language support."
+      }
+    ]
+  }
+]
