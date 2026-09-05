@@ -43,23 +43,23 @@
         "text": "Introduced premium UI components, animations, and high-resolution album artwork."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Completely redesigned Android TV experience with responsive layouts and better remote navigation."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Improved playback quality with advanced audio routing and processing."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Optimized performance, reduced UI rebuilds, and improved overall responsiveness."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Enhanced loading experience with improved skeleton screens and smoother animations."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Improved Watch Party synchronization, chat reliability, and typing indicators."
       },
       {
@@ -92,7 +92,7 @@
         "text": "Added language-based filters for Top Artists and Top Playlists."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Improved app API performance and stability."
       }
     ]
@@ -199,7 +199,7 @@
         "text": "Complete overhaul of Android TV UI/UX for a cleaner, modern, and more immersive experience."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Introduced Black-themed UI with Roboto font optimized for Android TV readability."
       }
     ]
@@ -236,11 +236,11 @@
         "text": "Fixed issue where the Mobile-to-TV QR code sometimes didn’t appear."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Music Party UI improved with quick room code copy, live user count, and fast join option."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "App now starts in Dark Mode with a redesigned Changelog viewer in Settings."
       }
     ]
@@ -273,7 +273,7 @@
         "text": "Fixed startup black screen and occasional app freeze."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Music Party now supports albums and playlists with friends."
       }
     ]
@@ -302,7 +302,7 @@
         "text": "Fixed chat reply functionality issues in the Party Room to ensure smooth and reliable messaging."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Enhanced the Search screen layout and added a new playlist creation option within the Playlist dialog."
       }
     ]
@@ -400,11 +400,11 @@
         "text": "Resolved overwrite issues in Google Drive backup and restore."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Introduced full online playlist import with duplicate handling and local library saving."
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Redesigned Artist screen and added Party Mode with Save to Library support."
       }
     ]
@@ -659,7 +659,7 @@
         "text": "Add hourly music notifications"
       },
       {
-        "type": "IMPROVEMENT",
+        "type": "IMPROVE",
         "text": "Optimize Music Party Sync"
       }
     ]
