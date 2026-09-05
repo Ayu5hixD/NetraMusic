@@ -1,7 +1,7 @@
 {
   "latestVersion": "3.0.0",
   "latestBuildNumber": 2026,
-  "forceUpdate": true,
+  "forceUpdate": false,
   "spClientID": "39b6391988b644ffbdaade9ed5ed37fd",
   "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Team Netra",
   "changelog": [
