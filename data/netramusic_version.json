@@ -41,14 +41,15 @@
   "updateUrl": "https://netramusic.vercel.app/download",
   "downloadUrl": [
     {
-      "arm64-v8a": "https://github.com/netracore/netramusic/releases/download/v3.0.1/netramusic.3.0.1-arm64-v8a-release.apk",
-      "armeabi-v7a": "https://github.com/netracore/netramusic/releases/download/v3.0.1/netramusic.3.0.1-armeabi-v7a-release.apk",
-      "universal": "https://github.com/netracore/netramusic/releases/download/v3.0.1/netramusic.3.0.1-universal-release.apk"
+      "x86_64": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-x86_64-release.apk",
+      "arm64-v8a": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-armeabi-v7a-release.apk",
+      "universal": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-universal-release.apk"
     }
   ],
   "desktopDownloadUrl": [
     {
-      "windows-x64": "https://github.com/netracore/netramusic/releases/download/v3.0.1/netramusic.3.0.1-win-release.exe"
+      "windows-x64": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-win-release.exe"
     }
   ],
   "lockApp": false,
