@@ -1,55 +1,55 @@
 {
-  "latestVersion": "3.0.1",
-  "latestBuildNumber": 2028,
+  "latestVersion": "3.1.0",
+  "latestBuildNumber": 2030,
   "forceUpdate": true,
   "spClientID": "39b6391988b644ffbdaade9ed5ed37fd",
   "releaseNotes": "- Introduced Top, Trending, and Latest JioSaavn online playlists.\n\n- Team Netra",
   "changelog": [
     {
       "type": "NEW",
-      "text": "Introduced NetraMusic Desktop release for Windows, macOS, and Linux."
+      "text": "Added Watch Party support across Mobile, Android TV, and Desktop with live chat and synchronized playback."
     },
     {
       "type": "NEW",
-      "text": "Introduced a completely redesigned UI/UX across Mobile, Desktop, and TV with modern layouts, animations, and a unified visual experience."
+      "text": "Added real-time synced lyrics across all platforms with multiple lyrics providers."
     },
     {
       "type": "NEW",
-      "text": "Introduced multi-provider synced lyrics with broader song coverage and live sync."
+      "text": "Added stereo balance controls for a more personalized listening experience."
     },
     {
       "type": "NEW",
-      "text": "Introduced Radio section for discovering and streaming music stations."
+      "text": "Added customizable fonts and improved Ringtone Cutter with waveform preview and audio fading."
     },
     {
-      "type": "NEW",
-      "text": "Introduced Party Sync live synced lyrics with role-based playback controls."
+      "type": "IMPROVE",
+      "text": "Improved Watch Party synchronization, host switching, and connection stability."
+    },
+    {
+      "type": "IMPROVE",
+      "text": "Enhanced Android TV and Desktop interfaces with better navigation, layouts, and search performance."
+    },
+    {
+      "type": "IMPROVE",
+      "text": "Improved audio playback, shuffle navigation, repeat controls, and download reliability."
     },
     {
       "type": "FIX",
-      "text": "Resolved multiple playback, library, UI, sync, and stability issues."
-    },
-    {
-      "type": "IMPROVE",
-      "text": "Improved playback session persistence across Mobile, TV, and Desktop."
-    },
-    {
-      "type": "IMPROVE",
-      "text": "Enhanced playlist loading with pagination and smooth infinite scrolling."
+      "text": "Fixed multiple security, privacy, playback, synchronization, and stability issues."
     }
   ],
   "updateUrl": "https://netramusic.vercel.app/download",
   "downloadUrl": [
     {
-      "x86_64": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-x86_64-release.apk",
-      "arm64-v8a": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-arm64-v8a-release.apk",
-      "armeabi-v7a": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-armeabi-v7a-release.apk",
-      "universal": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-universal-release.apk"
+      "x86_64": "https://github.com/netracore/NetraMusic/releases/download/v3.1.0/netramusic.3.1.0-x86_64-release.apk",
+      "arm64-v8a": "https://github.com/netracore/NetraMusic/releases/download/v3.1.0/netramusic.3.1.0-arm64-v8a-release.apk",
+      "armeabi-v7a": "https://github.com/netracore/NetraMusic/releases/download/v3.1.0/netramusic.3.1.0-armeabi-v7a-release.apk",
+      "universal": "https://github.com/netracore/NetraMusic/releases/download/v3.1.0/netramusic.3.1.0-universal-release.apk"
     }
   ],
   "desktopDownloadUrl": [
     {
-      "windows-x64": "https://github.com/netracore/NetraMusic/releases/download/v3.0.1/netramusic.3.0.1-win-release.exe"
+      "windows-x64": "https://github.com/netracore/NetraMusic/releases/download/v3.1.0/netramusic.3.1.0-win-release.exe"
     }
   ],
   "lockApp": false,
